@@ -12,10 +12,11 @@ import {
   DropdownMenuSeparator, 
   DropdownMenuTrigger 
 } from "../ui/dropdown-menu";
-import { ChevronDown, Mail } from "lucide-react";
+import { ChevronDown, Instagram, Mail } from "lucide-react";
 import WhatsAppIcon from '@mui/icons-material/WhatsApp';
 import { usePathname } from "next/navigation";
 import Image from 'next/image'
+import { cn } from "@/lib/utils";
 
 const Navbar = () => {
   const [isMounted, setIsMounted] = useState(false)
@@ -38,7 +39,7 @@ const Navbar = () => {
       name: "PAGE"
     }, {
       path: "/location",
-      name: "LOCATION"
+      name: "PAGE"
     }
   ]
 
@@ -58,8 +59,12 @@ const Navbar = () => {
 
   let pathname = usePathname() || "/"
 
+  // fixed z-20 bg-black top-3 left-1/2 transform -translate-x-1/2 flex w-5/6 items-center text-[16px]text-white p-4 justify-between border border-neutral-500 rounded-[15px]
+
   return (
-      <div className="fixed z-20 bg-black top-3 left-1/2 transform -translate-x-1/2 flex w-5/6 items-center text-[16px] text-white p-4 justify-between border border-neutral-500 rounded-[15px]">
+      <div className={cn("z-20 bg-black top-3 flex w-5/6 items-center text-[16px] text-white p-4 justify-between border border-neutral-500 rounded-[15px]",
+        pathname === '/' ? "fixed left-1/2 transform -translate-x-1/2" : "sticky mx-auto"
+  )}>
         <div className="flex">
           {navItems.map((item, index) => {
             const isActive = item.path === pathname;
@@ -126,6 +131,19 @@ const Navbar = () => {
                 >
                   <Mail color="#3d87ff"/>
                   <span className="text-[17px] pl-3">Email</span>
+                </a>
+              </Button>
+            </DropdownMenuItem>
+            <DropdownMenuSeparator />
+            <DropdownMenuItem>
+              <Button
+                variant='ghost'
+              >
+                <a href="https://www.instagram.com/bsc_za/" 
+                  className="flex"
+                >
+                  <Instagram className="text-pink-600"/>
+                  <span className="text-[17px] pl-3">Instagram</span>
                 </a>
               </Button>
             </DropdownMenuItem>
