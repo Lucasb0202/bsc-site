@@ -12,7 +12,7 @@ import {
   DropdownMenuSeparator, 
   DropdownMenuTrigger 
 } from "../ui/dropdown-menu";
-import { ChevronDown, Instagram, Mail } from "lucide-react";
+import { ChevronDown, Instagram, Mail, Menu } from "lucide-react";
 import WhatsAppIcon from '@mui/icons-material/WhatsApp';
 import { usePathname } from "next/navigation";
 import Image from 'next/image'
@@ -64,8 +64,40 @@ const Navbar = () => {
   return (
       <div className={cn("z-20 bg-black top-3 flex w-5/6 items-center text-[16px] text-white p-4 justify-between border border-neutral-500 rounded-[15px]",
         pathname === '/' ? "fixed left-1/2 transform -translate-x-1/2" : "sticky mx-auto"
-  )}>
-        <div className="flex">
+      )}>
+        <div className="md:hidden">
+          <DropdownMenu>
+            <DropdownMenuTrigger>
+              <Button
+                variant='ghost'
+              >
+                <Menu size={32} />
+              </Button>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent className="bg-black text-white rounded-none border-none">
+            <div>
+              {navItems.map((item, index) => {
+                const isActive = item.path === pathname;
+
+                return(
+                  <DropdownMenuItem>
+                    <Link 
+                      key={item.path}
+                      href={item.path}
+                      className={`px-2 hover:text-[#0078e6] ${isActive ? "text-[#0078e6]": ""}`}
+                    >
+                      {item.name}
+                    </Link>
+                    {index < navItems.length - 1 ? <DropdownMenuSeparator className="h-5"/>: <></>}
+                  </DropdownMenuItem>
+                )
+              })}
+            </div>
+
+            </DropdownMenuContent>
+          </DropdownMenu>
+        </div>
+        <div className="md:flex hidden">
           {navItems.map((item, index) => {
             const isActive = item.path === pathname;
 
@@ -87,25 +119,26 @@ const Navbar = () => {
           <Link
             href='/' 
           >
-          <Image 
-            src="/bsc-logo.png"
-            alt="BSC logo"
-            width={110}
-            height={0}
-          />
+            <Image 
+              src="/bsc-logo.png"
+              alt="BSC logo"
+              width={110}
+              height={0}
+              className="md:w-[110px] w-[60px]"
+            />
           </Link>
         </div>
         <DropdownMenu>
           <DropdownMenuTrigger>
             <Button
               variant='bsc'
-              className="text-[16px]"
+              className="md:text-[16px] text-[13px]"
             >
               CONTACT US
-              <ChevronDown  size={18}/>
+              <ChevronDown size={18}/>
             </Button>
           </DropdownMenuTrigger>
-          <DropdownMenuContent>
+          <DropdownMenuContent className="">
             <DropdownMenuItem>
               <Button
                 variant='ghost'
