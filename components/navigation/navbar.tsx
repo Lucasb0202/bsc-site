@@ -12,11 +12,12 @@ import {
   DropdownMenuSeparator, 
   DropdownMenuTrigger 
 } from "../ui/dropdown-menu";
-import { ChevronDown, Instagram, Mail, Menu } from "lucide-react";
+import { BookOpen, ChevronDown, Dumbbell, House, Instagram, Mail, Menu } from "lucide-react";
 import WhatsAppIcon from '@mui/icons-material/WhatsApp';
 import { usePathname } from "next/navigation";
 import Image from 'next/image'
 import { cn } from "@/lib/utils";
+import { Drawer, DrawerContent, DrawerHeader, DrawerTitle, DrawerTrigger } from "../ui/drawer";
 
 const Navbar = () => {
   const [isMounted, setIsMounted] = useState(false)
@@ -28,18 +29,22 @@ const Navbar = () => {
   const navItems = [
     {
       path: "/",
-      name: "HOME"
+      name: "HOME",
+      icon: <House size={29}/>
     },
     {
       path: "/online-training",
-      name: "ONLINE TRAINING"
+      name: "ONLINE TRAINING",
+      icon: <Dumbbell size={29}/>
     },
     {
       path: "/page",
-      name: "PAGE"
+      name: "PAGE",
+      icon: <BookOpen size={29}/>
     }, {
       path: "/location",
-      name: "PAGE"
+      name: "PAGE",
+      icon: <BookOpen size={29}/>
     }
   ]
 
@@ -66,36 +71,48 @@ const Navbar = () => {
         pathname === '/' ? "fixed left-1/2 transform -translate-x-1/2" : "sticky mx-auto"
       )}>
         <div className="md:hidden">
-          <DropdownMenu>
-            <DropdownMenuTrigger>
+          <Drawer direction="right">
+            <DrawerTrigger>
               <Button
                 variant='ghost'
               >
                 <Menu size={32} />
               </Button>
-            </DropdownMenuTrigger>
-            <DropdownMenuContent className="bg-black text-white rounded-none border-none">
-            <div>
-              {navItems.map((item, index) => {
-                const isActive = item.path === pathname;
-
-                return(
-                  <DropdownMenuItem>
-                    <Link 
-                      key={item.path}
-                      href={item.path}
-                      className={`px-2 hover:text-[#0078e6] ${isActive ? "text-[#0078e6]": ""}`}
-                    >
-                      {item.name}
-                    </Link>
-                    {index < navItems.length - 1 ? <DropdownMenuSeparator className="h-5"/>: <></>}
-                  </DropdownMenuItem>
-                )
-              })}
-            </div>
-
-            </DropdownMenuContent>
-          </DropdownMenu>
+            </DrawerTrigger>
+            <DrawerContent>
+              <DrawerHeader>
+                <DrawerTitle className="flex justify-center">
+                  <Image 
+                    src="/bsc-logo.png"
+                    alt="BSC logo"
+                    width={110}
+                    height={0}
+                    className="md:w-[110px] w-[60px]"
+                  />
+                </DrawerTitle>
+              </DrawerHeader>
+              <div className="flex flex-col">
+                {navItems.map((item, index) => {
+                  const isActive = item.path === pathname;
+                  
+                  return(
+                    <>
+                      <Link 
+                        key={item.path}
+                        href={item.path}
+                        className={`hover:text-[#0078e6] text-[30px] ${isActive ? "text-[#0078e6]": ""}`}
+                      >
+                        <div className="flex">
+                          <span className="mb-7 px-2 pt-[10px]">{item.icon}</span>
+                          <span>{item.name}</span>
+                        </div>
+                      </Link>
+                    </>
+                  )
+                })}
+              </div>
+            </DrawerContent>
+          </Drawer>
         </div>
         <div className="md:flex hidden">
           {navItems.map((item, index) => {
@@ -110,7 +127,7 @@ const Navbar = () => {
                 >
                   {item.name}
                 </Link>
-                {index < navItems.length - 1 ? <Separator orientation="vertical" className="h-6"/>: <></>}
+                {index < navItems.length - 1 ? <Separator orientation="vertical" className="h-6 bg-white"/>: <></>}
               </>
             )
           })}

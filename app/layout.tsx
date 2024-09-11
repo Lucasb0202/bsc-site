@@ -21,10 +21,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={cn(
-        font.className,
-        'bg-black'
-      )}>
+      <body className={`dark ${font.className}`}>
         <Navbar />
         {children}
       </body>
