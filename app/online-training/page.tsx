@@ -51,16 +51,16 @@ const OnlineTraining = () => {
         /> */}
       </div>
 
-      <div className='w-5/6 grid grid-cols-3 gap-3'>
+      <div className='grid grid-cols-1 gap-3 w-5/6 md:grid-cols-3'>
         {cardItems.map((item, index) => {
           return(
-            <Card>
+            <Card key={index}>
               <CardHeader>
-                <CardTitle>{item.title}</CardTitle>
+                <CardTitle className='text-[20px]'>{item.title}</CardTitle>
                 <Separator className='bg-blue-500 h-[2px]'/>
               </CardHeader>
               <CardContent>
-                <p>{item.description}</p>
+                <p className='text-[15px]'>{item.description}</p>
               </CardContent>
             </Card>
           )

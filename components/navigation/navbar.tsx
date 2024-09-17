@@ -53,10 +53,10 @@ const Navbar = () => {
   }
 
   const message = "Hi there,\nI am interested in training at BSC!\nPlease give me more information."
-  const phoneNumber = "27632698205"
+  const phoneNumber = process.env.PHONE_NUMBER
   const whatsAppUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`
 
-  const email = "info@bacza.co.za"
+  const email = process.env.EMAIL
   const subject = "Inquiry About Your Services"
   const body = "Hi there,\nI am interested in training at BSC!\nPlease give me more information."
 
