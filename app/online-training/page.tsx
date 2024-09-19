@@ -10,6 +10,7 @@ import {
 import { Separator } from '@/components/ui/separator'
 import Image from 'next/image'
 
+export const runtime = "edge"
 
 const OnlineTraining = () => {
   const cardItems = [

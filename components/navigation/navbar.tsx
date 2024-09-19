@@ -20,6 +20,7 @@ import { cn } from "@/lib/utils";
 import { Drawer, DrawerContent, DrawerHeader, DrawerTitle, DrawerTrigger } from "../ui/drawer";
 
 const Navbar = () => {
+  let pathname = usePathname() || "/"
   const [isMounted, setIsMounted] = useState(false)
 
   useEffect(() => {
@@ -62,7 +63,6 @@ const Navbar = () => {
 
   const mailtoUrl = `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`
 
-  let pathname = usePathname() || "/"
 
   // fixed z-20 bg-black top-3 left-1/2 transform -translate-x-1/2 flex w-5/6 items-center text-[16px]text-white p-4 justify-between border border-neutral-500 rounded-[15px]
 
