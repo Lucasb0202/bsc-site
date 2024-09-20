@@ -17,7 +17,7 @@ import WhatsAppIcon from '@mui/icons-material/WhatsApp';
 import { usePathname } from "next/navigation";
 import Image from 'next/image'
 import { cn } from "@/lib/utils";
-import { Drawer, DrawerContent, DrawerHeader, DrawerTitle, DrawerTrigger } from "../ui/drawer";
+import { Drawer, DrawerClose, DrawerContent, DrawerHeader, DrawerTitle, DrawerTrigger } from "../ui/drawer";
 
 const Navbar = () => {
   let pathname = usePathname() || "/"
@@ -72,12 +72,8 @@ const Navbar = () => {
       )}>
         <div className="md:hidden">
           <Drawer direction="right">
-            <DrawerTrigger>
-              <Button
-                variant='ghost'
-              >
+            <DrawerTrigger className="px-4 py-2">
                 <Menu size={32} />
-              </Button>
             </DrawerTrigger>
             <DrawerContent>
               <DrawerHeader>
@@ -100,12 +96,19 @@ const Navbar = () => {
                       <Link 
                         key={item.path}
                         href={item.path}
-                        className={`hover:text-[#0078e6] text-[30px] ${isActive ? "text-[#0078e6]": ""}`}
+                        className={`${isActive ? "text-[#0078e6] mb-6": "mb-6"}`}
                       >
-                        <div className="flex">
-                          <span className="mb-7 px-2 pt-[10px]">{item.icon}</span>
-                          <span>{item.name}</span>
-                        </div>
+                        <DrawerClose>
+                          <Button variant="ghost">
+                            <div className="flex text-[30px] ">
+                              <span className="px-3">{item.icon}</span>
+                              <span>{item.name}</span>
+                            </div>
+                          </Button> 
+                        </DrawerClose>
+                        {/* <div className="space-y-1.5">
+                          <Separator className='bg-blue-500/60 h-[2px]'/>
+                        </div> */}
                       </Link>
                     </>
                   )

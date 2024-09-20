@@ -8,7 +8,7 @@ export default function Home() {
     <>
       <div className="relative h-screen">
         <video 
-          className='absolute top-0 left-0 w-full h-full object-cover blur-sm'
+          className='hidden md:absolute md:top-0 md:left-0 md:w-full md:h-full md:object-cover md:blur-sm md:block'
           src="/videoBg.mp4"
           autoPlay
           loop
