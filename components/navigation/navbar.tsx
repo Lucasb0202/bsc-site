@@ -67,7 +67,7 @@ const Navbar = () => {
   // fixed z-20 bg-black top-3 left-1/2 transform -translate-x-1/2 flex w-5/6 items-center text-[16px]text-white p-4 justify-between border border-neutral-500 rounded-[15px]
 
   return (
-      <div className={cn("z-20 bg-black top-3 flex w-5/6 items-center text-[16px] text-white p-4 justify-between border border-neutral-500 rounded-[15px]",
+      <div className={cn("z-50 bg-black top-3 flex w-5/6 items-center text-[16px] text-white p-4 justify-between border border-neutral-500 rounded-[15px] lg:p-6",
         pathname === '/' ? "fixed left-1/2 transform -translate-x-1/2" : "sticky mx-auto"
       )}>
         <div className="md:hidden">
@@ -83,7 +83,6 @@ const Navbar = () => {
                     alt="BSC logo"
                     width={110}
                     height={0}
-                    className="md:w-[110px] w-[60px]"
                   />
                 </DrawerTitle>
               </DrawerHeader>
@@ -128,9 +127,9 @@ const Navbar = () => {
                   href={item.path}
                   className={`px-2 hover:text-[#0078e6] ${isActive ? "text-[#0078e6]": ""}`}
                 >
-                  {item.name}
+                  <p className="lg:text-[20px]">{item.name}</p>
                 </Link>
-                {index < navItems.length - 1 ? <Separator orientation="vertical" className="h-6 bg-white"/>: <></>}
+                {index < navItems.length - 1 ? <Separator orientation="vertical" className="lg:h-8 h-6 bg-white"/>: <></>}
               </>
             )
           })}
@@ -144,7 +143,7 @@ const Navbar = () => {
               alt="BSC logo"
               width={110}
               height={0}
-              className="md:w-[110px] w-[60px]"
+              className="md:w-[110px] lg:w-[130px] w-[70px]"
             />
           </Link>
         </div>
@@ -152,7 +151,7 @@ const Navbar = () => {
           <DropdownMenuTrigger>
             <Button
               variant='bsc'
-              className="md:text-[16px] text-[13px]"
+              className="md:text-[16px] lg:text-[20px] text-[13px]"
             >
               CONTACT US
               <ChevronDown size={18}/>
