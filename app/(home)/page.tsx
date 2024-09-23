@@ -43,8 +43,8 @@ export default function Home() {
     const yValues = [100, -150, -400]
 
     gsap.utils.toArray(".row").forEach((row, index) => {
-      const cardLeft = row.querySelector(".card-left")
-      const cardRight = row.querySelector(".card-right")
+      const cardLeft = (row as HTMLElement).querySelector(".card-left") as HTMLElement
+      const cardRight = (row as HTMLElement).querySelector(".card-right") as HTMLElement
 
       gsap.to(cardLeft, {
         x: leftXValues[index],
@@ -223,11 +223,11 @@ export default function Home() {
                       >
                         <Card className='flex flex-col border-none justify-center h-full'>
                           <CardHeader className='flex items-center'>
-                            <CardTitle className='md:text-[25px] lg:text-[60px]'>{item.title}</CardTitle>
+                            <CardTitle className='md:text-[25px] lg:text-[60px] text-[20px]'>{item.title}</CardTitle>
                             <Separator className='bg-blue-500 h-[2px]'/>
                           </CardHeader>
                           <CardContent className='flex text-center'>
-                            <CardDescription className='text-white md:text-[40px]'>
+                            <CardDescription className='text-white md:text-[40px] text-[14px]'>
                               {item.description.split(" ").map((el, i) => (
                                 <motion.span
                                 initial={{ opacity: 0 }}
