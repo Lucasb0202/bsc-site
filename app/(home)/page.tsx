@@ -20,105 +20,117 @@ import { Separator } from '@/components/ui/separator'
 
 export const runtime = "edge"
 
-// gsap.registerPlugin(ScrollTrigger)
+gsap.registerPlugin(ScrollTrigger)
 
 export default function Home() {
-  const ref = useRef<HTMLDivElement>(null)
-  const { scrollYProgress } = useScroll({
-    target: ref,
-    offset: ["0 1", "1.33 1"]
-  })
+  // const ref = useRef<HTMLDivElement>(null)
+  // const { scrollYProgress } = useScroll({
+  //   target: ref,
+  //   offset: ["0 1", "1.33 1"]
+  // })
 
-  // useEffect(() => {
-  //   const scrollTriggerSettings = {
-  //     trigger: ".main",
-  //     start: "top 25%",
-  //     toggleActions: "play reverse play reverse"
-  //   }
+  useEffect(() => {
+    const scrollTriggerSettings = {
+      trigger: ".main",
+      start: "top 25%",
+      toggleActions: "play reverse play reverse"
+    }
 
-  //   const leftXValues = [-800, -900, -400]
-  //   const rightXValues = [800, 900, 400]
-  //   const leftRotationValues = [-30, -20, -35]
-  //   const rightRotationValues = [30, 20, 35]
-  //   const yValues = [100, -150, -400]
+    const leftXValues = [-800, -900, -400]
+    const rightXValues = [800, 900, 400]
+    const leftRotationValues = [-30, -20, -35]
+    const rightRotationValues = [30, 20, 35]
+    const yValues = [100, -150, -400]
 
-  //   gsap.utils.toArray(".row").forEach((row, index) => {
-  //     const cardLeft = row.querySelector(".card-left")
-  //     const cardRight = row.querySelector(".card-right")
+    gsap.utils.toArray(".row").forEach((row, index) => {
+      const cardLeft = row.querySelector(".card-left")
+      const cardRight = row.querySelector(".card-right")
 
-  //     gsap.to(cardLeft, {
-  //       x: leftXValues[index],
-  //       scrollTrigger: {
-  //         trigger: ".main",
-  //         start: "top center",
-  //         end: "150% bottom",
-  //         scrub: true,
-  //         onUpdate: (self) => {
-  //           const progress = self.progress;
-  //           cardLeft.style.transform = `translateX(${
-  //             progress * leftXValues[index]
-  //           }px translateY${progress * yValues[index]}px rotate(${
-  //             progress * leftRotationValues[index]
-  //           }deg)`
+      gsap.to(cardLeft, {
+        x: leftXValues[index],
+        scrollTrigger: {
+          trigger: ".main",
+          start: "top center",
+          end: "150% bottom",
+          scrub: true,
+          onUpdate: (self) => {
+            const progress = self.progress;
+            cardLeft.style.transform = `translateX(${
+              progress * leftXValues[index]
+            }px translateY${progress * yValues[index]}px rotate(${
+              progress * leftRotationValues[index]
+            }deg)`
+          }
+        }
+      })
 
-  //           cardRight.style.transform = `translateX(${
-  //             progress * rightXValues[index]
-  //           }px translateY${progress * yValues[index]}px rotate(${
-  //             progress * rightRotationValues[index]
-  //           }deg)`
-  //         }
-  //       }
-  //     })
-  //   })
+      gsap.to(cardRight, {
+        x: rightXValues[index],
+        scrollTrigger: {
+          trigger: ".main",
+          start: "top center",
+          end: "150% bottom",
+          scrub: true,
+          onUpdate: (self) => {
+            const progress = self.progress;
+            cardRight.style.transform = `translateX(${
+              progress * rightXValues[index]
+            }px translateY${progress * yValues[index]}px rotate(${
+              progress * rightRotationValues[index]
+            }deg)`
+          }
+        }
+      })
+    })
 
-  //   gsap.to(".logo", {
-  //     scale: 1,
-  //     duration: 0.5,
-  //     ease: "power1.out",
-  //     scrollTrigger: scrollTriggerSettings,
-  //   })
+    gsap.to(".logo", {
+      scale: 1,
+      duration: 0.5,
+      ease: "power1.out",
+      scrollTrigger: scrollTriggerSettings,
+    })
 
-  //   gsap.to(".line p", {
-  //     y: 0,
-  //     stagger: 0.1,
-  //     duration: 0.5,
-  //     ease: "power1.out",
-  //     scrollTrigger: scrollTriggerSettings,
-  //   })
+    gsap.to(".line p", {
+      y: 0,
+      stagger: 0.1,
+      duration: 0.5,
+      ease: "power1.out",
+      scrollTrigger: scrollTriggerSettings,
+    })
 
-  //   gsap.to(".button", {
-  //     y: 0,
-  //     opacity: 1,
-  //     delay: 0.25,
-  //     duration: 0.5,
-  //     ease: "power1.out",
-  //     scrollTrigger: scrollTriggerSettings,
-  //   })
+    gsap.to(".button", {
+      y: 0,
+      opacity: 1,
+      delay: 0.25,
+      duration: 0.5,
+      ease: "power1.out",
+      scrollTrigger: scrollTriggerSettings,
+    })
 
-  //   return () => {
-  //     ScrollTrigger.getAll().forEach((trigger) => trigger.kill())
-  //   }
+    return () => {
+      ScrollTrigger.getAll().forEach((trigger) => trigger.kill())
+    }
 
-  // }, [])
+  }, [])
 
-  // const generateRows = () => {
-  //   const rows = []
-  //   //photo-${2*i-1}.png
-  //   //photo-${2*i}.png
-  //   for (let i = 1; i <= 3; i++) {
-  //     rows.push(
-  //       <div className="row" key={i}>
-  //         <div className="card card-left">
-  //           <img src={`/placeholder.jpg`} alt="" />
-  //         </div>
-  //         <div className="card card-right">
-  //           <img src={`/placeholder.jpg`} alt="" />
-  //         </div>
-  //       </div>
-  //     )
-  //   }
-  //   return rows
-  // }
+  const generateRows = () => {
+    const rows = []
+    //photo-${2*i-1}.png
+    //photo-${2*i}.png
+    for (let i = 1; i <= 3; i++) {
+      rows.push(
+        <div className="row" key={i}>
+          <div className="card card-left">
+            <img className='img' src={`/placeholder.jpg`} alt="" />
+          </div>
+          <div className="card card-right">
+            <img className='img' src={`/placeholder.jpg`} alt="" />
+          </div>
+        </div>
+      )
+    }
+    return rows
+  }
 
   const cardItems = [
     {
@@ -183,93 +195,162 @@ export default function Home() {
         </div>
 
         <div className='flex flex-col items-center mt-7'>
-          <div className='grid grid-cols-1 gap-3 w-5/6 md:grid-cols-2 lg:grid-cols-2'>
+          <div className='grid grid-cols-1 gap-5 w-5/6 lg:grid-cols-2'>
             {cardItems.map((item, index) => {
-              return(
+              return (
               <>
-                {index % 2 == 0 ? (
-                  <>
+              
+                <div key={index} className='md:inline hidden'>
+                  {index % 2 == 0 ? (
+                    <>
+                      <motion.div
+                        initial={{ x: -600, opacity: 0, rotate: -30}}
+                        whileInView={{ x: 0, opacity: 1, rotate: 0, transition: { duration: 1 }}}
+                        viewport={{ once: true }}
+                      >
+                        <Card 
+                          style={{ 
+                            backgroundImage: `url(${item.imageUrl})`,
+                          }} 
+                          key={index}
+                          className='relative bg-cover bg-center h-[700px] mb-[100px]'
+                        >
+                          <div className='absolute z-10 right-0 left-0 bottom-0 top-0 bg-black/30'></div>
+                        </Card>
+                      </motion.div>
+                      <motion.div
+                        className='mb-[100px]'
+                      >
+                        <Card className='flex flex-col border-none justify-center h-full'>
+                          <CardHeader className='flex items-center'>
+                            <CardTitle className='md:text-[25px] lg:text-[60px]'>{item.title}</CardTitle>
+                            <Separator className='bg-blue-500 h-[2px]'/>
+                          </CardHeader>
+                          <CardContent className='flex text-center'>
+                            <CardDescription className='text-white md:text-[40px]'>
+                              {item.description.split(" ").map((el, i) => (
+                                <motion.span
+                                initial={{ opacity: 0 }}
+                                whileInView={{ opacity: 1, transition: { duration: 0.25, delay: i / 20 }}}
+                                viewport={{ once: true }}
+                                key={i}
+                              >
+                                {el}{" "}
+                              </motion.span>
+                              ))}
+                            </CardDescription>
+                          </CardContent>
+                        </Card>
+                      </motion.div>
+                    </>
+                  ) : (
+                    <>
+                      <motion.div
+                        className='mb-[100px]'
+                      >
+                        <Card className='flex flex-col border-none justify-center h-full'>
+                          <CardHeader className='flex items-center'>
+                            <CardTitle className='md:text-[25px] lg:text-[60px] text-[20px]'>{item.title}</CardTitle>
+                            <Separator className='bg-blue-500 h-[2px]'/>
+                          </CardHeader>
+                          <CardContent className='flex text-center'>
+                            <CardDescription className='text-white md:text-[40px] text-[14px]'>
+                              {item.description.split(" ").map((el, i) => (
+                                <motion.span
+                                initial={{ opacity: 0 }}
+                                whileInView={{ opacity: 1, transition: { duration: 0.25, delay: i / 20 }}}
+                                viewport={{ once: true }}
+                                key={i}
+                              >
+                                {el}{" "}
+                              </motion.span>
+                              ))}
+                            </CardDescription>
+                          </CardContent>
+                        </Card>
+                      </motion.div>
+                      <motion.div
+                        initial={{ x: 600, opacity: 0, rotate: 30}}
+                        whileInView={{ x: 0, opacity: 1, rotate: 0, transition: { duration: 1 }}}
+                        viewport={{ once: true }}
+                      >
+                        <Card 
+                          style={{ 
+                            backgroundImage: `url(${item.imageUrl})`,
+                          }} 
+                          key={index}
+                          className='relative bg-cover bg-center h-[700px] mb-[100px]'
+                        >
+                          <div className='absolute z-10 right-0 left-0 bottom-0 top-0 bg-black/30'></div>
+                        </Card>
+                      </motion.div>
+                    </>
+                  )}
+                </div>
+                <div className='md:hidden inline'>
+                  <motion.div
+                    initial={{ x: 300, opacity: 0, rotate: 30}}
+                    whileInView={{ x: 0, opacity: 1, rotate: 0, transition: { duration: 1 }}}
+                    viewport={{ once: true }}
+                  >
                     <Card 
                       style={{ 
                         backgroundImage: `url(${item.imageUrl})`,
                       }} 
                       key={index}
-                      className='relative bg-cover bg-center h-[700px] mb-[100px]'
+                      className='relative bg-cover bg-center h-[300px] mb-[20px]'
                     >
                       <div className='absolute z-10 right-0 left-0 bottom-0 top-0 bg-black/30'></div>
                     </Card>
-                    <motion.div
-                      // initial={{ y: 600}}
-                      // whileInView={{ y: 0}}
-                      className='mb-[100px]'
-                    >
-                      <Card className='flex flex-col justify-center border-none h-full'>
-                        <CardHeader className='flex items-center'>
-                          <CardTitle className='md:text-[25px] lg:text-[60px] text-[20px]'>{item.title}</CardTitle>
-                          <Separator className='bg-blue-500 h-[2px]'/>
-                        </CardHeader>
-                        <CardContent className='flex text-center'>
-                          <CardDescription className='text-white md:text-[40px] text-[14px]'>{item.description}</CardDescription>
-                        </CardContent>
-                      </Card>
-                    </motion.div>
-                  </>
-                ) : (
-                  <>
-                    <motion.div
-                      // initial={{ y: 600}}
-                      // whileInView={{ y: 0}}
-                      className='mb-[100px]'
-                    >
-                      <Card className='flex flex-col justify-center border-none h-full'>
-                        <CardHeader className='flex items-center'>
-                          <CardTitle className='md:text-[25px] lg:text-[60px] text-[20px]'>{item.title}</CardTitle>
-                          <Separator className='bg-blue-500 h-[2px]'/>
-                        </CardHeader>
-                        <CardContent className='flex text-center'>
-                          <CardDescription className='text-white md:text-[40px] text-[14px]'>{item.description}</CardDescription>
-                        </CardContent>
-                      </Card>
-                    </motion.div>
-                    <Card 
-                      style={{ 
-                        backgroundImage: `url(${item.imageUrl})`,
-                      }} 
-                      key={index}
-                      className='relative bg-cover bg-center h-[700px] mb-[100px]'
-                    >
-                      <div className='absolute z-10 right-0 left-0 bottom-0 top-0 bg-black/30'></div>
+                  </motion.div>
+                  <motion.div
+                    className='mb-[100px]'
+                  >
+                    <Card className='flex flex-col border-none justify-center h-full'>
+                      <CardHeader className='flex items-center'>
+                        <CardTitle className='text-[20px]'>{item.title}</CardTitle>
+                        <Separator className='bg-blue-500 h-[2px]'/>
+                      </CardHeader>
+                      <CardContent className='flex text-center'>
+                        <CardDescription className='text-white text-[17px]'>
+                          {item.description.split(" ").map((el, i) => (
+                            <motion.span
+                            initial={{ opacity: 0 }}
+                            whileInView={{ opacity: 1, transition: { duration: 0.25, delay: i / 20 }}}
+                            viewport={{ once: true }}
+                            key={i}
+                          >
+                            {el}{" "}
+                          </motion.span>
+                          ))}
+                        </CardDescription>
+                      </CardContent>
                     </Card>
-                  </>
-                )}
+                  </motion.div>
+                </div>
               </>
               )
             })}
           </div>
         </div>
 
-        {/* <section className='main'>
+        <section className='main'>
           <div className='main-content'>
             <div className='logo'>
-              <img src="/bsc-logo.png" alt="bsc logo" />
+              <img className='img' src="/bsc-logo.png" alt="bsc logo" />
             </div>
 
             <div className="copy">
               <div className="line">
-                <p>Join the community</p>
+                <p>Get stuck in!</p>
               </div>
               <div className="line">
-                <p>and see what we are up to!</p>
+                <p>Follow us @</p>
               </div>
             </div>
-
-            <div className='btn'>
-              <button>GET PRO</button>
-            </div>
           </div>
-
           {generateRows()}
-        </section> */}
+        </section>
       </ReactLenis>
     </>
   );
