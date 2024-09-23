@@ -38,15 +38,15 @@ const Navbar = () => {
       name: "ONLINE TRAINING",
       icon: <Dumbbell size={29}/>
     },
-    {
-      path: "/page",
-      name: "PAGE",
-      icon: <BookOpen size={29}/>
-    }, {
-      path: "/location",
-      name: "PAGE",
-      icon: <BookOpen size={29}/>
-    }
+    // {
+    //   path: "/page",
+    //   name: "PAGE",
+    //   icon: <BookOpen size={29}/>
+    // }, {
+    //   path: "/location",
+    //   name: "PAGE",
+    //   icon: <BookOpen size={29}/>
+    // }
   ]
 
   if (!isMounted) {
@@ -64,11 +64,11 @@ const Navbar = () => {
   const mailtoUrl = `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`
 
 
-  // fixed z-20 bg-black top-3 left-1/2 transform -translate-x-1/2 flex w-5/6 items-center text-[16px]text-white p-4 justify-between border border-neutral-500 rounded-[15px]
+  // sticky mx-auto
 
   return (
       <div className={cn("z-50 bg-black top-3 flex w-5/6 items-center text-[16px] text-white p-4 justify-between border border-neutral-500 rounded-[15px] lg:p-6",
-        pathname === '/' ? "fixed left-1/2 transform -translate-x-1/2" : "sticky mx-auto"
+        pathname === '/' ? "fixed left-1/2 transform -translate-x-1/2" : "fixed left-1/2 transform -translate-x-1/2"
       )}>
         <div className="md:hidden">
           <Drawer direction="right">
