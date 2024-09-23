@@ -20,32 +20,32 @@ const OnlineTraining = () => {
     {
       title: "Real-time Leaderboards",
       description: "Compare your performances with others trained by the same coaching provider. Coach set benchmarks in your program will drive real time leaderboards with full ‘like and commenting’ ability.",
-      imageUrl: "/photo-1.png"
+      imageUrl: "/photo-1.jpg"
     },
     {
       title: "Ad-hoc Sessions",
       description: "Occasionally do your own workout? Or want to track the time walking the dog? No problem, supplement your coaching by building your own sessions, on the same day, in the same calendar. Everything stored in one place!",
-      imageUrl: "/photo-2.png"
+      imageUrl: "/photo-2.jpg"
     },
     {
       title: "Calendar Feedback",
       description: "Your coach will be able to drop personalised comments, directly onto your training calendar, specific to your performances. A certain session might not go quite as planned, discuss it there and then with your coach. Hit a new high, let your coach know directly next to the performance!",
-      imageUrl: "/photo-1.png"
+      imageUrl: "/photo-1.jpg"
     },
     {
       title: "Program Communities",
       description: "Integrate yourself into the community. We will make you part of your program’s community, where you can share and ask anything within the group. Ask questions, share your progress, throw some high fives, it’s all possible!",
-      imageUrl: "/photo-4.png"
+      imageUrl: "/photo-4.jpg"
     },
     {
       title: "1-2-1 Chat",
       description: "Our dedicated messenger service will let you share your performances, direct from your training calendar, to your coach, and chat 1-2-1 about anything on your mind.",
-      imageUrl: "/photo-1.png"
+      imageUrl: "/photo-1.jpg"
     },
     {
       title: "Customisable Benchmark Tracker",
       description: "Track an unlimited amount of benchmarks. Link media to each performance and see your progression over time. Share benchmarks to your coach for feedback.",
-      imageUrl: "/photo-1.png"
+      imageUrl: "/photo-1.jpg"
     },
   ]
 
