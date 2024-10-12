@@ -121,10 +121,10 @@ export default function Home() {
       rows.push(
         <div className="row" key={i}>
           <div className="card card-left">
-            <img className='img' src={`/placeholder.jpg`} alt="" />
+            <img className='img' src={`/photo-2.jpg`} alt="" />
           </div>
           <div className="card card-right">
-            <img className='img' src={`/placeholder.jpg`} alt="" />
+            <img className='img' src={`/photo-4.jpg`} alt="" />
           </div>
         </div>
       )
@@ -136,7 +136,7 @@ export default function Home() {
     {
       title: "Real-time Leaderboards",
       description: "Compare your performances with others trained by the same coaching provider. Coach set benchmarks in your program will drive real time leaderboards with full ‘like and commenting’ ability.",
-      imageUrl: "/photo-1.jpg"
+      imageUrl: "/photo-4.jpg"
     },
     {
       title: "Ad-hoc Sessions",
@@ -161,7 +161,7 @@ export default function Home() {
     {
       title: "Customisable Benchmark Tracker",
       description: "Track an unlimited amount of benchmarks. Link media to each performance and see your progression over time. Share benchmarks to your coach for feedback.",
-      imageUrl: "/photo-1.jpg"
+      imageUrl: "/photo-2.jpg"
     },
   ]
 
@@ -200,12 +200,12 @@ export default function Home() {
               return (
               <>
               
-                <div key={index} className='md:inline hidden'>
+                {/* <div key={index} className='md:inline hidden'> */}
                   {index % 2 == 0 ? (
                     <>
                       <motion.div
-                        initial={{ x: -600, opacity: 0, rotate: -30}}
-                        whileInView={{ x: 0, opacity: 1, rotate: 0, transition: { duration: 1 }}}
+                        initial={{ x: -600, opacity: 0, }}
+                        whileInView={{ x: 0, opacity: 1, transition: { duration: 1 }}}
                         viewport={{ once: true }}
                       >
                         <Card 
@@ -213,9 +213,9 @@ export default function Home() {
                             backgroundImage: `url(${item.imageUrl})`,
                           }} 
                           key={index}
-                          className='relative bg-cover bg-center h-[700px] mb-[100px]'
+                          className='relative bg-cover bg-center h-[600px] mb-[100px]'
                         >
-                          <div className='absolute z-10 right-0 left-0 bottom-0 top-0 bg-black/30'></div>
+                          {/* <div className='absolute z-10 right-0 left-0 bottom-0 top-0 bg-black/30'></div> */}
                         </Card>
                       </motion.div>
                       <motion.div
@@ -223,20 +223,20 @@ export default function Home() {
                       >
                         <Card className='flex flex-col border-none justify-center h-full'>
                           <CardHeader className='flex items-center'>
-                            <CardTitle className='md:text-[25px] lg:text-[60px] text-[20px]'>{item.title}</CardTitle>
+                            <CardTitle className='md:text-[25px] lg:text-[45px] text-[20px]'>{item.title}</CardTitle>
                             <Separator className='bg-blue-500 h-[2px]'/>
                           </CardHeader>
-                          <CardContent className='flex text-center'>
-                            <CardDescription className='text-white md:text-[40px] text-[14px]'>
+                          <CardContent className='flex'>
+                            <CardDescription className='text-white lg:text-[30px] md:text-[20px] text-[14px]'>
                               {item.description.split(" ").map((el, i) => (
                                 <motion.span
-                                initial={{ opacity: 0 }}
-                                whileInView={{ opacity: 1, transition: { duration: 0.25, delay: i / 20 }}}
-                                viewport={{ once: true }}
-                                key={i}
-                              >
-                                {el}{" "}
-                              </motion.span>
+                                  initial={{ opacity: 0 }}
+                                  whileInView={{ opacity: 1, transition: { duration: 0.25, delay: i / 20 }}}
+                                  viewport={{ once: true }}
+                                  key={i}
+                                >
+                                  {el}{" "}
+                                </motion.span>
                               ))}
                             </CardDescription>
                           </CardContent>
@@ -250,11 +250,11 @@ export default function Home() {
                       >
                         <Card className='flex flex-col border-none justify-center h-full'>
                           <CardHeader className='flex items-center'>
-                            <CardTitle className='md:text-[25px] lg:text-[60px] text-[20px]'>{item.title}</CardTitle>
+                            <CardTitle className='md:text-[25px] lg:text-[45px] text-[20px]'>{item.title}</CardTitle>
                             <Separator className='bg-blue-500 h-[2px]'/>
                           </CardHeader>
-                          <CardContent className='flex text-center'>
-                            <CardDescription className='text-white md:text-[40px] text-[14px]'>
+                          <CardContent className='flex'>
+                            <CardDescription className='text-white lg:text-[30px] md:text-[20px] text-[14px]'>
                               {item.description.split(" ").map((el, i) => (
                                 <motion.span
                                 initial={{ opacity: 0 }}
@@ -279,14 +279,14 @@ export default function Home() {
                             backgroundImage: `url(${item.imageUrl})`,
                           }} 
                           key={index}
-                          className='relative bg-cover bg-center h-[700px] mb-[100px]'
+                          className='relative bg-cover bg-center h-[600px] mb-[100px]'
                         >
-                          <div className='absolute z-10 right-0 left-0 bottom-0 top-0 bg-black/30'></div>
+                          {/* <div className='absolute z-10 right-0 left-0 bottom-0 top-0 bg-black/30'></div> */}
                         </Card>
                       </motion.div>
                     </>
                   )}
-                </div>
+                {/* </div> */}
                 <div className='md:hidden inline'>
                   <motion.div
                     initial={{ x: 300, opacity: 0, rotate: 30}}
