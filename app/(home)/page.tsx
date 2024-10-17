@@ -195,140 +195,27 @@ export default function Home() {
         </div>
 
         <div className='flex flex-col items-center mt-7'>
-          <div className='grid grid-cols-1 gap-5 w-5/6 lg:grid-cols-2'>
+          <div className='grid grid-cols-1 gap-5 w-5/6 md:grid-cols-3'>
             {cardItems.map((item, index) => {
               return (
-              <>
-              
-                {/* <div key={index} className='md:inline hidden'> */}
-                  {index % 2 == 0 ? (
-                    <>
-                      <motion.div
-                        initial={{ x: -600, opacity: 0, }}
-                        whileInView={{ x: 0, opacity: 1, transition: { duration: 1 }}}
-                        viewport={{ once: true }}
-                      >
-                        <Card 
-                          style={{ 
-                            backgroundImage: `url(${item.imageUrl})`,
-                          }} 
-                          key={index}
-                          className='relative bg-cover bg-center h-[600px] mb-[100px]'
-                        >
-                          {/* <div className='absolute z-10 right-0 left-0 bottom-0 top-0 bg-black/30'></div> */}
-                        </Card>
-                      </motion.div>
-                      <motion.div
-                        className='mb-[100px]'
-                      >
-                        <Card className='flex flex-col border-none justify-center h-full'>
-                          <CardHeader className='flex items-center'>
-                            <CardTitle className='md:text-[25px] lg:text-[45px] text-[20px]'>{item.title}</CardTitle>
-                            <Separator className='bg-blue-500 h-[2px]'/>
-                          </CardHeader>
-                          <CardContent className='flex'>
-                            <CardDescription className='text-white lg:text-[30px] md:text-[20px] text-[14px]'>
-                              {item.description.split(" ").map((el, i) => (
-                                <motion.span
-                                  initial={{ opacity: 0 }}
-                                  whileInView={{ opacity: 1, transition: { duration: 0.25, delay: i / 20 }}}
-                                  viewport={{ once: true }}
-                                  key={i}
-                                >
-                                  {el}{" "}
-                                </motion.span>
-                              ))}
-                            </CardDescription>
-                          </CardContent>
-                        </Card>
-                      </motion.div>
-                    </>
-                  ) : (
-                    <>
-                      <motion.div
-                        className='mb-[100px]'
-                      >
-                        <Card className='flex flex-col border-none justify-center h-full'>
-                          <CardHeader className='flex items-center'>
-                            <CardTitle className='md:text-[25px] lg:text-[45px] text-[20px]'>{item.title}</CardTitle>
-                            <Separator className='bg-blue-500 h-[2px]'/>
-                          </CardHeader>
-                          <CardContent className='flex'>
-                            <CardDescription className='text-white lg:text-[30px] md:text-[20px] text-[14px]'>
-                              {item.description.split(" ").map((el, i) => (
-                                <motion.span
-                                initial={{ opacity: 0 }}
-                                whileInView={{ opacity: 1, transition: { duration: 0.25, delay: i / 20 }}}
-                                viewport={{ once: true }}
-                                key={i}
-                              >
-                                {el}{" "}
-                              </motion.span>
-                              ))}
-                            </CardDescription>
-                          </CardContent>
-                        </Card>
-                      </motion.div>
-                      <motion.div
-                        initial={{ x: 600, opacity: 0, rotate: 30}}
-                        whileInView={{ x: 0, opacity: 1, rotate: 0, transition: { duration: 1 }}}
-                        viewport={{ once: true }}
-                      >
-                        <Card 
-                          style={{ 
-                            backgroundImage: `url(${item.imageUrl})`,
-                          }} 
-                          key={index}
-                          className='relative bg-cover bg-center h-[600px] mb-[100px]'
-                        >
-                          {/* <div className='absolute z-10 right-0 left-0 bottom-0 top-0 bg-black/30'></div> */}
-                        </Card>
-                      </motion.div>
-                    </>
-                  )}
-                {/* </div> */}
-                <div className='md:hidden inline'>
-                  <motion.div
-                    initial={{ x: 300, opacity: 0, rotate: 30}}
-                    whileInView={{ x: 0, opacity: 1, rotate: 0, transition: { duration: 1 }}}
-                    viewport={{ once: true }}
-                  >
-                    <Card 
-                      style={{ 
-                        backgroundImage: `url(${item.imageUrl})`,
-                      }} 
-                      key={index}
-                      className='relative bg-cover bg-center h-[300px] mb-[20px]'
-                    >
-                      <div className='absolute z-10 right-0 left-0 bottom-0 top-0 bg-black/30'></div>
-                    </Card>
-                  </motion.div>
-                  <motion.div
-                    className='mb-[100px]'
-                  >
-                    <Card className='flex flex-col border-none justify-center h-full'>
-                      <CardHeader className='flex items-center'>
-                        <CardTitle className='text-[20px]'>{item.title}</CardTitle>
-                        <Separator className='bg-blue-500 h-[2px]'/>
-                      </CardHeader>
-                      <CardContent className='flex text-center'>
-                        <CardDescription className='text-white text-[17px]'>
-                          {item.description.split(" ").map((el, i) => (
-                            <motion.span
-                            initial={{ opacity: 0 }}
-                            whileInView={{ opacity: 1, transition: { duration: 0.25, delay: i / 20 }}}
-                            viewport={{ once: true }}
-                            key={i}
-                          >
-                            {el}{" "}
-                          </motion.span>
-                          ))}
-                        </CardDescription>
-                      </CardContent>
-                    </Card>
-                  </motion.div>
-                </div>
-              </>
+                <Card 
+                style={{ 
+                  backgroundImage: `url(${item.imageUrl})`,
+                }} 
+                key={index}
+                className='relative bg-cover bg-center h-[600px] mb-[100px]'
+                >
+                  <CardHeader className='flex items-center'>
+                    <CardTitle className='md:text-[25px] lg:text-[45px] text-[20px]'>{item.title}</CardTitle>
+                    <Separator className='bg-blue-500 h-[2px]'/>
+                  </CardHeader>
+                  <CardContent>
+                    <CardDescription className='text-white lg:text-[30px] md:text-[20px] text-[14px]'>
+                      {item.description}
+                    </CardDescription>
+                  </CardContent>
+                  <div className='absolute z-0 right-0 left-0 bottom-0 top-0 bg-black/30'></div>
+                </Card>
               )
             })}
           </div>
