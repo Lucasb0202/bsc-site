@@ -98,14 +98,14 @@ export default function Home() {
       scrollTrigger: scrollTriggerSettings,
     })
 
-    gsap.to(".button", {
-      y: 0,
-      opacity: 1,
-      delay: 0.25,
-      duration: 0.5,
-      ease: "power1.out",
-      scrollTrigger: scrollTriggerSettings,
-    })
+    // gsap.to(".button", {
+    //   y: 0,
+    //   opacity: 1,
+    //   delay: 0.25,
+    //   duration: 0.5,
+    //   ease: "power1.out",
+    //   scrollTrigger: scrollTriggerSettings,
+    // })
 
     return () => {
       ScrollTrigger.getAll().forEach((trigger) => trigger.kill())
@@ -195,7 +195,7 @@ export default function Home() {
         </div>
 
         <div className='flex flex-col items-center mt-7'>
-          <div className='grid grid-cols-1 gap-5 w-5/6 md:grid-cols-3'>
+          <div className='grid grid-cols-1 gap-5 w-5/6 md:grid-cols-2 lg:grid-cols-3'>
             {cardItems.map((item, index) => {
               return (
                 <Card 
@@ -203,18 +203,18 @@ export default function Home() {
                   backgroundImage: `url(${item.imageUrl})`,
                 }} 
                 key={index}
-                className='relative bg-cover bg-center h-[600px] mb-[100px]'
+                className='relative bg-cover bg-center'
                 >
-                  <CardHeader className='flex items-center'>
-                    <CardTitle className='md:text-[25px] lg:text-[45px] text-[20px]'>{item.title}</CardTitle>
+                  <div className='absolute z-0 inset-0 bg-black/40'></div>
+                  <CardHeader className='relative z-10 flex items-center'>
+                    <CardTitle className='md:text-[25px] lg:text-[31px] text-[20px]'>{item.title}</CardTitle>
                     <Separator className='bg-blue-500 h-[2px]'/>
                   </CardHeader>
-                  <CardContent>
-                    <CardDescription className='text-white lg:text-[30px] md:text-[20px] text-[14px]'>
+                  <CardContent className='relative z-10'>
+                    <CardDescription className='text-white lg:text-[23px] md:text-[20px] text-[14px]'>
                       {item.description}
                     </CardDescription>
                   </CardContent>
-                  <div className='absolute z-0 right-0 left-0 bottom-0 top-0 bg-black/30'></div>
                 </Card>
               )
             })}
