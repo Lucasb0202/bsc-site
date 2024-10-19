@@ -185,7 +185,41 @@ export default function Home() {
           </div>
         </div>
 
-        <div className='flex flex-col items-center mt-7'>
+        <div className='flex justify-center m-11'>
+          <h1 className='lg:text-[110px] md:text-[80px] text-[50px]'>WHO ARE WE?</h1>
+        </div>
+
+        <div className='flex'>
+          <img 
+            src="/coach-2.png" 
+            alt="coach" 
+            className='rounded-2xl ml-14'
+          />
+          <Card className='border-none w-full'>
+            <CardHeader className='text-center'>
+              <CardTitle className='text-[60px]'>NEIL BESTER</CardTitle>
+              <Separator className='bg-blue-500 h-[2px] w-1/3 mx-auto'/>
+            </CardHeader>
+            <CardContent className='flex justify-center'>
+              <CardDescription className='w-1/2 text-white text-[22px]'>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim 
+                ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
+                Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
+                cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                Curabitur pretium tincidunt lacus. Nulla gravida orci a odio. Nullam varius, turpis et commodo pharetra, est eros bibendum elit, 
+                nec luctus magna felis sollicitudin mauris. Integer in mauris eu nibh euismod gravida. Pretium ac, nisi.
+                Nullam varius, turpis et commodo pharetra, est eros bibendum elit, 
+                nec luctus magna felis sollicitudin mauris. Integer in mauris eu nibh euismod gravida. Pretium ac, nisi.
+              </CardDescription>
+            </CardContent>
+          </Card>
+        </div>
+
+        <div className='flex justify-center m-11'>
+          <h1 className='lg:text-[110px] md:text-[80px] text-[50px]'>WHAT WE DO</h1>
+        </div>
+
+        <div className='flex flex-col items-center my-7'>
           <div className='grid grid-cols-1 gap-5 w-5/6 md:grid-cols-2 lg:grid-cols-3'>
             {cardItems.map((item, index) => {
               return (
@@ -196,7 +230,7 @@ export default function Home() {
                 key={index}
                 className='relative bg-cover bg-center'
                 >
-                  <div className='absolute z-0 inset-0 bg-black/40'></div>
+                  <div className='absolute z-0 inset-0 bg-black/50'></div>
                   <CardHeader className='relative z-10 flex items-center'>
                     <CardTitle className='md:text-[25px] lg:text-[31px] text-[20px]'>{item.title}</CardTitle>
                     <Separator className='bg-blue-500 h-[2px]'/>
