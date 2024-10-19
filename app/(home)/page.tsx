@@ -8,6 +8,13 @@ import { useEffect } from 'react'
 import gsap from "gsap"
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { ReactLenis } from "lenis/react"
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from '@/components/ui/carousel'
 import { 
   Card, 
   CardHeader, 
@@ -43,8 +50,8 @@ export default function Home() {
     const yValues = [100, -150, -400]
 
     gsap.utils.toArray(".row").forEach((row, index) => {
-      const cardLeft = row.querySelector(".card-left")
-      const cardRight = row.querySelector(".card-right") 
+      const cardLeft = (row as HTMLElement).querySelector(".card-left") as HTMLElement
+      const cardRight = (row as HTMLElement).querySelector(".card-right") as HTMLElement 
 
       gsap.to(cardLeft, {
         x: leftXValues[index],
@@ -65,24 +72,6 @@ export default function Home() {
           }
         }
       })
-
-      // gsap.to(cardRight, {
-      //   x: rightXValues[index],
-      //   scrollTrigger: {
-      //     trigger: ".main",
-      //     start: "top center",
-      //     end: "150% bottom",
-      //     scrub: true,
-      //     onUpdate: (self) => {
-      //       const progress = self.progress;
-      //       cardRight.style.transform = `translateX(${
-      //         progress * rightXValues[index]
-      //       }px translateY${progress * yValues[index]}px rotate(${
-      //         progress * rightRotationValues[index]
-      //       }deg))`
-      //     }
-      //   }
-      // })
     })
 
     gsap.to(".logo", {
@@ -222,6 +211,26 @@ export default function Home() {
             })}
           </div>
         </div>
+        
+        {/* <div className='flex justify-center'>
+          <Carousel className="">
+            <CarouselContent>
+              {Array.from({ length: 5 }).map((_, index) => (
+                <CarouselItem key={index}>
+                  <div className="p-1">
+                    <Card>
+                      <CardContent className="flex aspect-square items-center justify-center p-6">
+                        <span className="text-4xl font-semibold">{index + 1}</span>
+                      </CardContent>
+                    </Card>
+                  </div>
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+            <CarouselPrevious />
+            <CarouselNext />
+          </Carousel>
+        </div> */}
 
         <section className='main'>
           <div className='main-content'>
@@ -231,10 +240,16 @@ export default function Home() {
 
             <div className="copy">
               <div className="line">
-                <p>Get stuck in!</p>
+                <p>GET INVOLVED!</p>
               </div>
               <div className="line">
-                <p>Follow us @</p>
+                <p>FITTER</p>
+              </div>
+              <div className="line">
+                <p>FASTER</p>
+              </div>
+              <div className="line">
+                <p>STRONGER</p>
               </div>
             </div>
           </div>
