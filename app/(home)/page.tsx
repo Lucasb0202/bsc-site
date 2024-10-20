@@ -137,13 +137,11 @@ export default function Home() {
     
     const generateRows = () => {
       const rows = []
-      //photo-${2*i-1}.png
-      //photo-${2*i}.png
-      for (let i = 1; i <= 3; i++) {
+      for (let i = 1, j = 4; i <= 3; i++, j++) {
         rows.push(
           <div className="row" key={i}>
           <div className="card card-left">
-            <img className='img' src={`/photo-2.jpg`} alt="" />
+            <img className='img' src={`/photo-1.jpg`} alt="" />
           </div>
           <div className="card card-right">
             <img className='img' src={`/photo-4.jpg`} alt="" />
@@ -158,7 +156,7 @@ export default function Home() {
     {
       title: "Real-time Leaderboards",
       description: "Compare your performances with others trained by the same coaching provider. Coach set benchmarks in your program will drive real time leaderboards with full ‘like and commenting’ ability.",
-      imageUrl: "/photo-4.jpg"
+      imageUrl: "/photo-1.jpg"
     },
     {
       title: "Ad-hoc Sessions",
@@ -168,7 +166,7 @@ export default function Home() {
     {
       title: "Calendar Feedback",
       description: "Your coach will be able to drop personalised comments, directly onto your training calendar, specific to your performances. A certain session might not go quite as planned, discuss it there and then with your coach. Hit a new high, let your coach know directly next to the performance!",
-      imageUrl: "/photo-1.jpg"
+      imageUrl: "/photo-3.jpg"
     },
     {
       title: "Program Communities",
@@ -178,12 +176,12 @@ export default function Home() {
     {
       title: "1-2-1 Chat",
       description: "Our dedicated messenger service will let you share your performances, direct from your training calendar, to your coach, and chat 1-2-1 about anything on your mind.",
-      imageUrl: "/photo-1.jpg"
+      imageUrl: "/photo-5.jpg"
     },
     {
       title: "Customisable Benchmark Tracker",
       description: "Track an unlimited amount of benchmarks. Link media to each performance and see your progression over time. Share benchmarks to your coach for feedback.",
-      imageUrl: "/photo-2.jpg"
+      imageUrl: "/photo-6.jpg"
     },
   ]
 
@@ -202,7 +200,7 @@ export default function Home() {
             <p className="text-white lg:text-5xl md:text-4xl text-3xl font-bold text-center px-8">
               BSC GYM IS A PLACE WHERE YOU LEARN TO PUSH YOUR LIMITS. OUR COACHING PLATFORM IS HERE TO TEACH YOU THE FUNDAMENTALS OF TRAINING EFFICIENTLY AND EFFECTIVELY.
             </p>
-            <Button
+            {/* <Button
               variant='bsc'
               className="mt-4 text-[25px]"
               size='lg'
@@ -212,42 +210,95 @@ export default function Home() {
               >
               LEARN MORE
               </Link>
-            </Button>
+            </Button> */}
           </div>
         </div>
 
         <div className='flex justify-center m-11'>
-          <h1 className='clip-path-animate-text animate-text lg:text-[110px] md:text-[80px] text-[50px]'>WHO ARE WE?</h1>
+          <h1 className='clip-path-animate-text animate-text lg:text-[130px] md:text-[80px] text-[50px]'>WHO ARE WE?</h1>
         </div>
 
-        <div className='flex'>
-          <img 
-            src="/coach-2.png" 
-            alt="coach" 
-            className='rounded-2xl ml-14'
-          />
-          <Card className='border-none w-full'>
-            <CardHeader className='text-center'>
-              <CardTitle className='text-[72px] font-normal'>NEIL BESTER</CardTitle>
-              <Separator className='bg-blue-500 h-[2px] w-1/3 mx-auto'/>
+        <div className='grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12'>
+          <div className='flex justify-center'>
+            <img 
+              src="/coach-2.png" 
+              alt="coach" 
+              className='rounded-2xl object-contain w-4/5 md:w-auto'
+            />
+          </div>
+          <Card className='border-none rounded-none w-full'>
+            <CardHeader className=''>
+              <CardTitle className='text-[40px] md:text-[55px] lg:text-[72px] font-normal'>NEIL BESTER</CardTitle>
+              <Separator className='bg-blue-500 h-[2px] w-1/2'/>
             </CardHeader>
-            <CardContent className='flex justify-center'>
-              <CardDescription className='w-1/2 text-white text-[22px]'>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim 
-                ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
-                Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-                cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                Curabitur pretium tincidunt lacus. Nulla gravida orci a odio. Nullam varius, turpis et commodo pharetra, est eros bibendum elit, 
+            <CardContent className=''>
+              <p className='sm:leading-4 md:leading-8 lg:w-5/6 text-white text-[12px] md:text-[16px] lg:text-[21px]'>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+                Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim 
+                ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
+                Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                Curabitur pretium tincidunt lacus. Nulla gravida orci a odio. Nullam varius, turpis et commodo pharetra, 
+                est eros bibendum elit, nec luctus magna felis sollicitudin mauris. Integer in mauris eu nibh euismod gravida. 
+                Pretium ac, nisi. Nullam varius, turpis et commodo pharetra, est eros bibendum elit, 
                 nec luctus magna felis sollicitudin mauris. Integer in mauris eu nibh euismod gravida. Pretium ac, nisi.
-                Nullam varius, turpis et commodo pharetra, est eros bibendum elit, 
-                nec luctus magna felis sollicitudin mauris. Integer in mauris eu nibh euismod gravida. Pretium ac, nisi.
-              </CardDescription>
+              </p>
             </CardContent>
           </Card>
         </div>
 
+        <div className='grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12'>
+          <div className='flex justify-center'>
+            <div className='flex flex-col w-4/5 md:ml-12 lg:ml-24'>
+              <h1 className='clip-path-animate-text animate-text text-[40px] md:text-[70px] lg:text-[100px]'>OUR MISSION</h1>
+              <p className='text-white text-[12px] md:text-[18px] lg:text-[28px]'>
+                At BSC, we believe that fitness is simple when
+                approached the right way. We provide the tools and
+                guidance you need to reach your fitness goals
+                without the guesswork, through personalized and
+                professional coaching. Our gym offers a unique,
+                private, small group personal training experience
+                that allows for individualized attention in a group
+                setting. What makes BSC unique is our exclusivity. We're not a walk-in
+                gym - our clients book their sessions in advance, ensuring a
+                well-structured and personalized experience. Our small
+                group classes (8-12 people) allow for a high level of
+                individual attention while still fostering a supportive group
+                environment. Every client is known by their coach, and every
+                session is designed with their specific needs in mind.
+              </p>
+            </div>
+          </div>
+          <div className='flex justify-center'>
+            <img 
+              src="/member-1.jpg" 
+              alt="member" 
+              className='max-w-full h-[300px] md:h-[600px] lg:h-[800px] rounded-2xl' 
+            />
+          </div>
+        </div>
+        
+        <div className='flex justify-center'>
+          <div className='flex flex-col w-4/5'>
+            <div className='flex flex-col'>
+              <h1 className='clip-path-animate-text animate-text lg:text-[100px] md:text-[70px] text-[50px]'>MAIN GOALS</h1>
+              <p className='text-white md:text-[16px] lg:text-[28px] mb-5'>
+                Our aim is to make fitness accessible and achievable for everyone, no matter their fitness level. We focus on educating
+                our clients and providing them with the right roadmap to success. With the right coach, fitness becomes less of a
+                challenge and more of a rewarding journey.
+              </p>
+            </div>
+            <img 
+              src="/team.jpeg" 
+              alt="team" 
+              className='rounded-2xl w-full max-w-full h-auto object-cover'
+            />
+          </div>
+        </div>
+
+
         <div className='flex justify-center m-11'>
-          <h1 className='clip-path-animate-text animate-text lg:text-[110px] md:text-[80px] text-[50px]'>WHAT WE DO</h1>
+          <h1 className='clip-path-animate-text animate-text lg:text-[130px] md:text-[80px] text-[50px]'>WHAT WE DO</h1>
         </div>
 
         <div className='flex flex-col items-center my-7'>
@@ -297,7 +348,7 @@ export default function Home() {
           </Carousel>
         </div> */}
 
-        <section className='main'>
+        <section className='main md:block hidden'>
           <div className='main-content'>
             <div className='logo'>
               <img className='img' src="/bsc-logo.png" alt="bsc logo" />
