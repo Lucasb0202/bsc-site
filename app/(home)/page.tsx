@@ -42,7 +42,7 @@ export default function Home() {
 
     textElements.forEach((element) => {
       // Split the text into characters for each element
-      const splitText = new SplitType(element, { types: 'chars' });
+      const splitText = new SplitType((element as HTMLElement), { types: 'chars' });
       const chars = splitText.chars;
 
       // Create a GSAP animation for each element
