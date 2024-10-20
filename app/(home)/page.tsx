@@ -204,7 +204,7 @@ export default function Home() {
             </p>
             <Button
               variant='bsc'
-              className="mt-4 text-[19px]"
+              className="mt-4 text-[25px]"
               size='lg'
             >
               <Link
@@ -228,7 +228,7 @@ export default function Home() {
           />
           <Card className='border-none w-full'>
             <CardHeader className='text-center'>
-              <CardTitle className='text-[60px]'>NEIL BESTER</CardTitle>
+              <CardTitle className='text-[72px] font-normal'>NEIL BESTER</CardTitle>
               <Separator className='bg-blue-500 h-[2px] w-1/3 mx-auto'/>
             </CardHeader>
             <CardContent className='flex justify-center'>
@@ -261,13 +261,13 @@ export default function Home() {
                 key={index}
                 className='relative bg-cover bg-center lg:h-[500px]'
                 >
-                  <div className='absolute z-0 inset-0 bg-black/50'></div>
+                  <div className='absolute z-0 inset-0 bg-black/60'></div>
                   <CardHeader className='relative z-10 flex items-center'>
-                    <CardTitle className='md:text-[25px] lg:text-[31px] text-[20px]'>{item.title}</CardTitle>
+                    <CardTitle className='md:text-[25px] lg:text-[40px] text-[20px] font-normal'>{item.title}</CardTitle>
                     <Separator className='bg-blue-500 h-[2px]'/>
                   </CardHeader>
                   <CardContent className='relative z-10'>
-                    <CardDescription className='text-white lg:text-[23px] md:text-[20px] text-[14px]'>
+                    <CardDescription className='text-white lg:text-[25px] md:text-[20px] text-[14px]'>
                       {item.description}
                     </CardDescription>
                   </CardContent>

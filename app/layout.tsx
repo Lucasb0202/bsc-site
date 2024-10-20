@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
-import { Monomaniac_One } from "next/font/google";
+import { Monomaniac_One } from "@next/font/google";
 import "./globals.css";
 import { cn } from "@/lib/utils";
 import Navbar from "@/components/navigation/navbar";
+import { Bebas_Neue } from '@next/font/google'
 
-const font = Monomaniac_One({
+const font = Bebas_Neue({
   weight: '400', 
   subsets: ['latin'], 
 });

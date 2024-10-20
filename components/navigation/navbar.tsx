@@ -127,9 +127,9 @@ const Navbar = () => {
                   href={item.path}
                   className={`px-2 hover:text-[#0078e6] ${isActive ? "text-[#0078e6]": ""}`}
                 >
-                  <p className="lg:text-[20px]">{item.name}</p>
+                  <p className="lg:text-[30px]">{item.name}</p>
                 </Link>
-                {index < navItems.length - 1 ? <Separator orientation="vertical" className="lg:h-8 h-6 bg-white"/>: <></>}
+                {index < navItems.length - 1 ? <Separator orientation="vertical" className="lg:h-10 h-6 bg-white"/>: <></>}
               </>
             )
           })}
@@ -151,7 +151,7 @@ const Navbar = () => {
           <DropdownMenuTrigger>
             <Button
               variant='bsc'
-              className="md:text-[16px] lg:text-[20px] text-[13px]"
+              className="md:text-[20px] lg:text-[30px] text-[13px]"
               type="button"
             >
               CONTACT US
