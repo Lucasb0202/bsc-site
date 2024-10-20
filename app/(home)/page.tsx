@@ -1,6 +1,7 @@
 "use client"
 
 import React, { useRef } from 'react'
+import Image from 'next/image';
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { motion, useScroll } from "framer-motion"
@@ -220,6 +221,7 @@ export default function Home() {
 
         <div className='grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12'>
           <div className='flex justify-center'>
+            {/* //Next image */}
             <img 
               src="/coach-2.png" 
               alt="coach" 
@@ -259,7 +261,7 @@ export default function Home() {
                 professional coaching. Our gym offers a unique,
                 private, small group personal training experience
                 that allows for individualized attention in a group
-                setting. What makes BSC unique is our exclusivity. We're not a walk-in
+                setting. What makes BSC unique is our exclusivity. We&apos;re not a walk-in
                 gym - our clients book their sessions in advance, ensuring a
                 well-structured and personalized experience. Our small
                 group classes (8-12 people) allow for a high level of
