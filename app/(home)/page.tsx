@@ -6,6 +6,7 @@ import Link from "next/link";
 import { motion, useScroll } from "framer-motion"
 import { useEffect } from 'react'
 import gsap from "gsap"
+import SplitType from 'split-type'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { ReactLenis } from "lenis/react"
 import {
@@ -37,22 +38,52 @@ export default function Home() {
   // })
 
   useEffect(() => {
+    const textElements = document.querySelectorAll('h1.animate-text');
+
+    textElements.forEach((element) => {
+      // Split the text into characters for each element
+      const splitText = new SplitType(element, { types: 'chars' });
+      const chars = splitText.chars;
+
+      // Create a GSAP animation for each element
+      gsap.fromTo(
+        chars,
+        {
+          y: 500,
+          opacity: 0
+        },
+        {
+          y: 0,
+          opacity: 1, 
+          stagger: 0.05,
+          duration: 2,
+          ease: 'power4.out',
+          scrollTrigger: {
+            trigger: element,
+            start: 'top 100%', 
+            // end: 'top 20%', 
+            // toggleActions: 'play none none none', 
+          }
+        }
+      );
+    });
+
     const scrollTriggerSettings = {
       trigger: ".main",
       start: "top 25%",
       toggleActions: "play reverse play reverse"
     }
-
+    
     const leftXValues = [-800, -900, -400]
     const rightXValues = [800, 900, 400]
     const leftRotationValues = [-30, -20, -35]
     const rightRotationValues = [30, 20, 35]
     const yValues = [100, -150, -400]
-
+    
     gsap.utils.toArray(".row").forEach((row, index) => {
       const cardLeft = (row as HTMLElement).querySelector(".card-left") as HTMLElement
       const cardRight = (row as HTMLElement).querySelector(".card-right") as HTMLElement 
-
+      
       gsap.to(cardLeft, {
         x: leftXValues[index],
         scrollTrigger: {
@@ -62,25 +93,25 @@ export default function Home() {
           scrub: true,
           onUpdate: (self) => {
             const progress = self.progress;
-
+            
             cardLeft.style.transform = `translateX(${progress * leftXValues[index]}px) 
-              translateY(${progress * yValues[index]}px) 
-              rotate(${progress * leftRotationValues[index]}deg)`;
+            translateY(${progress * yValues[index]}px) 
+            rotate(${progress * leftRotationValues[index]}deg)`;
             cardRight.style.transform = `translateX(${progress * rightXValues[index]}px)
-              translateY(${progress * yValues[index]}px) 
-              rotate(${progress * rightRotationValues[index]}deg)`;
+            translateY(${progress * yValues[index]}px) 
+            rotate(${progress * rightRotationValues[index]}deg)`;
           }
         }
       })
     })
-
+    
     gsap.to(".logo", {
       scale: 1,
       duration: 0.5,
       ease: "power1.out",
       scrollTrigger: scrollTriggerSettings,
     })
-
+    
     gsap.to(".line p", {
       y: 0,
       stagger: 0.1,
@@ -88,29 +119,29 @@ export default function Home() {
       ease: "power1.out",
       scrollTrigger: scrollTriggerSettings,
     })
-
+    
     // gsap.to(".button", {
-    //   y: 0,
-    //   opacity: 1,
-    //   delay: 0.25,
-    //   duration: 0.5,
-    //   ease: "power1.out",
-    //   scrollTrigger: scrollTriggerSettings,
-    // })
-
-    return () => {
-      ScrollTrigger.getAll().forEach((trigger) => trigger.kill())
-    }
-
-  }, [])
-
-  const generateRows = () => {
-    const rows = []
-    //photo-${2*i-1}.png
-    //photo-${2*i}.png
-    for (let i = 1; i <= 3; i++) {
-      rows.push(
-        <div className="row" key={i}>
+      //   y: 0,
+      //   opacity: 1,
+      //   delay: 0.25,
+      //   duration: 0.5,
+      //   ease: "power1.out",
+      //   scrollTrigger: scrollTriggerSettings,
+      // })
+      
+      return () => {
+        ScrollTrigger.getAll().forEach((trigger) => trigger.kill())
+      }
+      
+    }, [])
+    
+    const generateRows = () => {
+      const rows = []
+      //photo-${2*i-1}.png
+      //photo-${2*i}.png
+      for (let i = 1; i <= 3; i++) {
+        rows.push(
+          <div className="row" key={i}>
           <div className="card card-left">
             <img className='img' src={`/photo-2.jpg`} alt="" />
           </div>
@@ -122,7 +153,7 @@ export default function Home() {
     }
     return rows
   }
-
+  
   const cardItems = [
     {
       title: "Real-time Leaderboards",
@@ -186,7 +217,7 @@ export default function Home() {
         </div>
 
         <div className='flex justify-center m-11'>
-          <h1 className='lg:text-[110px] md:text-[80px] text-[50px]'>WHO ARE WE?</h1>
+          <h1 className='clip-path-animate-text animate-text lg:text-[110px] md:text-[80px] text-[50px]'>WHO ARE WE?</h1>
         </div>
 
         <div className='flex'>
@@ -216,7 +247,7 @@ export default function Home() {
         </div>
 
         <div className='flex justify-center m-11'>
-          <h1 className='lg:text-[110px] md:text-[80px] text-[50px]'>WHAT WE DO</h1>
+          <h1 className='clip-path-animate-text animate-text lg:text-[110px] md:text-[80px] text-[50px]'>WHAT WE DO</h1>
         </div>
 
         <div className='flex flex-col items-center my-7'>
@@ -228,7 +259,7 @@ export default function Home() {
                   backgroundImage: `url(${item.imageUrl})`,
                 }} 
                 key={index}
-                className='relative bg-cover bg-center'
+                className='relative bg-cover bg-center lg:h-[500px]'
                 >
                   <div className='absolute z-0 inset-0 bg-black/50'></div>
                   <CardHeader className='relative z-10 flex items-center'>

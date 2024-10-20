@@ -179,3 +179,9 @@
     @apply bg-background text-foreground;
   }
 }
+
+@layer utilities {
+  .clip-path-animate-text {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+  }
+}

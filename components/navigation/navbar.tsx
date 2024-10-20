@@ -147,11 +147,12 @@ const Navbar = () => {
             />
           </Link>
         </div>
-        <DropdownMenu>
+        <DropdownMenu modal={false}>
           <DropdownMenuTrigger>
             <Button
               variant='bsc'
               className="md:text-[16px] lg:text-[20px] text-[13px]"
+              type="button"
             >
               CONTACT US
               <ChevronDown size={18}/>
