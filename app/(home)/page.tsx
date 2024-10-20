@@ -49,7 +49,7 @@ export default function Home() {
       gsap.fromTo(
         chars,
         {
-          y: 500,
+          y: 150,
           opacity: 0
         },
         {
