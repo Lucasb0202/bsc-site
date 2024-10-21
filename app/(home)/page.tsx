@@ -252,7 +252,7 @@ export default function Home() {
         <div className='grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12'>
           <div className='flex justify-center'>
             <div className='flex flex-col w-4/5 md:ml-12 lg:ml-24'>
-              <h1 className='clip-path-animate-text animate-text text-[40px] md:text-[70px] lg:text-[100px]'>OUR MISSION</h1>
+              <h1 className='clip-path-animate-text animate-text text-[#5e5d5d] text-[40px] md:text-[70px] lg:text-[100px]'>OUR MISSION</h1>
               <p className='text-white text-[12px] md:text-[18px] lg:text-[28px]'>
                 At BSC, we believe that fitness is simple when
                 approached the right way. We provide the tools and
@@ -283,7 +283,7 @@ export default function Home() {
         <div className='flex justify-center'>
           <div className='flex flex-col w-4/5'>
             <div className='flex flex-col'>
-              <h1 className='clip-path-animate-text animate-text lg:text-[100px] md:text-[70px] text-[50px]'>MAIN GOALS</h1>
+              <h1 className='clip-path-animate-text animate-text text-[#FFD700] lg:text-[100px] md:text-[70px] text-[50px]'>MAIN GOALS</h1>
               <p className='text-white md:text-[16px] lg:text-[28px] mb-5'>
                 Our aim is to make fitness accessible and achievable for everyone, no matter their fitness level. We focus on educating
                 our clients and providing them with the right roadmap to success. With the right coach, fitness becomes less of a
@@ -304,15 +304,15 @@ export default function Home() {
         </div>
 
         <div className='flex flex-col items-center my-7'>
-          <div className='grid grid-cols-1 gap-5 w-5/6 md:grid-cols-2 lg:grid-cols-3'>
+          <div className='md:grid hidden gap-5 w-5/6 md:grid-cols-2 lg:grid-cols-3'>
             {cardItems.map((item, index) => {
               return (
                 <Card 
-                style={{ 
-                  backgroundImage: `url(${item.imageUrl})`,
-                }} 
-                key={index}
-                className='relative bg-cover bg-center lg:h-[500px]'
+                  style={{ 
+                    backgroundImage: `url(${item.imageUrl})`,
+                  }} 
+                  key={index}
+                  className='relative bg-cover bg-center lg:h-[500px]'
                 >
                   <div className='absolute z-0 inset-0 bg-black/60'></div>
                   <CardHeader className='relative z-10 flex items-center'>
@@ -330,15 +330,30 @@ export default function Home() {
           </div>
         </div>
         
-        {/* <div className='flex justify-center'>
-          <Carousel className="">
+        <div className='md:hidden flex justify-center'>
+          <Carousel 
+            className="w-full max-w-xs"
+          >
             <CarouselContent>
-              {Array.from({ length: 5 }).map((_, index) => (
+              {cardItems.map((item, index) => (
                 <CarouselItem key={index}>
                   <div className="p-1">
-                    <Card>
-                      <CardContent className="flex aspect-square items-center justify-center p-6">
-                        <span className="text-4xl font-semibold">{index + 1}</span>
+                    <Card
+                      style={{ 
+                        backgroundImage: `url(${item.imageUrl})`,
+                      }}
+                      key={index}
+                      className='relative bg-cover bg-center'
+                    >
+                      <div className='absolute z-0 inset-0 bg-black/60'></div>
+                      <CardHeader className='relative z-10 flex items-center'>
+                        <CardTitle className='text-[23px] font-normal'>{item.title}</CardTitle>
+                        <Separator className='bg-blue-500 h-[2px]'/>
+                      </CardHeader>
+                      <CardContent className="relative z-10 flex aspect-square justify-center p-6">
+                      <CardDescription className='text-white text-[17px]'>
+                        {item.description}
+                      </CardDescription>
                       </CardContent>
                     </Card>
                   </div>
@@ -348,7 +363,7 @@ export default function Home() {
             <CarouselPrevious />
             <CarouselNext />
           </Carousel>
-        </div> */}
+        </div>
 
         <section className='main md:block hidden'>
           <div className='main-content'>

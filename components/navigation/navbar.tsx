@@ -151,7 +151,7 @@ const Navbar = () => {
           <DropdownMenuTrigger>
             <Button
               variant='bsc'
-              className="md:text-[20px] lg:text-[30px] text-[13px]"
+              className="md:text-[20px] lg:text-[30px] text-[15px]"
               type="button"
             >
               CONTACT US
