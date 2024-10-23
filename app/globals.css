@@ -28,6 +28,7 @@
   .main {
     width: 100vw;
     flex-direction: column;
+    overflow-x: hidden;
   }
 
   .row {

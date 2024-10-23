@@ -12,7 +12,6 @@ const font = Bebas_Neue({
 
 export const metadata: Metadata = {
   title: "BSC",
-  description: "BSC Website",
 };
 
 export default function RootLayout({
