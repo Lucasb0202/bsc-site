@@ -14,11 +14,11 @@ import Image from 'next/image'
 
 export const runtime = "edge"
 
-const OnlineTraining = () => {
+const Coaches = () => {
 
   return ( 
     <></>
   );
 }
  
-export default OnlineTraining;
+export default Coaches;

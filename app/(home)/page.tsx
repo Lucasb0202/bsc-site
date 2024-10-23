@@ -234,12 +234,12 @@ export default function Home() {
               <Separator className='bg-blue-500 h-[2px] w-1/2'/>
             </CardHeader>
             <CardContent className=''>
-              <p className='sm:leading-4 md:leading-8 lg:w-5/6 text-white text-[12px] md:text-[16px] lg:text-[21px]'>
+              <p className='leading-4 md:leading-6 lg:leading-8 lg:w-5/6 text-white text-[12px] md:text-[16px] lg:text-[21px]'>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
                 Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim 
-                ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.<br></br><br></br>
                 Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
-                Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.<br></br><br></br>
                 Curabitur pretium tincidunt lacus. Nulla gravida orci a odio. Nullam varius, turpis et commodo pharetra, 
                 est eros bibendum elit, nec luctus magna felis sollicitudin mauris. Integer in mauris eu nibh euismod gravida. 
                 Pretium ac, nisi. Nullam varius, turpis et commodo pharetra, est eros bibendum elit, 
@@ -320,7 +320,7 @@ export default function Home() {
                     <Separator className='bg-blue-500 h-[2px]'/>
                   </CardHeader>
                   <CardContent className='relative z-10'>
-                    <CardDescription className='text-white lg:text-[25px] md:text-[20px] text-[14px]'>
+                    <CardDescription className='text-center text-white lg:text-[22px] md:text-[18px] text-[13px]'>
                       {item.description}
                     </CardDescription>
                   </CardContent>
@@ -351,7 +351,7 @@ export default function Home() {
                         <Separator className='bg-blue-500 h-[2px]'/>
                       </CardHeader>
                       <CardContent className="relative z-10 flex aspect-square justify-center p-6">
-                      <CardDescription className='text-white text-[17px]'>
+                      <CardDescription className='text-white text-center text-[17px]'>
                         {item.description}
                       </CardDescription>
                       </CardContent>

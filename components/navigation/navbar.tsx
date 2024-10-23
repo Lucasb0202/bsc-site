@@ -34,8 +34,8 @@ const Navbar = () => {
       icon: <House size={29}/>
     },
     {
-      path: "/online-training",
-      name: "ONLINE TRAINING",
+      path: "/coaches",
+      name: "COACHES",
       icon: <Dumbbell size={29}/>
     },
     // {
@@ -70,7 +70,7 @@ const Navbar = () => {
       <div className={cn("z-50 bg-black top-3 flex w-5/6 items-center text-[16px] text-white p-4 justify-between border border-neutral-500 rounded-[15px] lg:p-6",
         pathname === '/' ? "fixed left-1/2 transform -translate-x-1/2" : "fixed left-1/2 transform -translate-x-1/2"
       )}>
-        <div className="md:hidden">
+        <div className="lg:hidden">
           <Drawer direction="right">
             <DrawerTrigger className="px-4 py-2">
                 <Menu size={32} />
@@ -116,7 +116,7 @@ const Navbar = () => {
             </DrawerContent>
           </Drawer>
         </div>
-        <div className="md:flex hidden">
+        <div className="lg:flex hidden">
           {navItems.map((item, index) => {
             const isActive = item.path === pathname;
 
@@ -127,7 +127,7 @@ const Navbar = () => {
                   href={item.path}
                   className={`px-2 hover:text-[#0078e6] ${isActive ? "text-[#0078e6]": ""}`}
                 >
-                  <p className="lg:text-[30px]">{item.name}</p>
+                  <p className="md:text-[20px] lg:text-[30px]">{item.name}</p>
                 </Link>
                 {index < navItems.length - 1 ? <Separator orientation="vertical" className="lg:h-10 h-6 bg-white"/>: <></>}
               </>
