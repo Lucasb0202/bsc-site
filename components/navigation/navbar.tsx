@@ -68,7 +68,7 @@ const Navbar = () => {
 
   return (
       <div className={cn("z-50 bg-black top-3 flex w-5/6 items-center text-[16px] text-white p-4 justify-between border border-neutral-500 rounded-[15px] lg:p-6",
-        pathname === '/' ? "fixed left-1/2 transform -translate-x-1/2" : "fixed left-1/2 transform -translate-x-1/2"
+        pathname === '/' ? "fixed left-1/2 transform -translate-x-1/2" : "sticky mx-auto"
       )}>
         <div className="lg:hidden">
           <Drawer direction="right">
