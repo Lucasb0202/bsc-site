@@ -17,19 +17,18 @@
     object-fit: cover;
   }
 
-  /* section {
-    
-  } */
+  section {
+    position: relative;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 
   .main {
     width: 100vw;
     flex-direction: column;
     overflow-x: hidden;
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    /* background-color: blue; */
   }
 
   .main-content {
@@ -109,15 +108,16 @@
     padding: 1em 2em;
     font-size: 22px;
     color: #fff;
-    border: 2px solid #fff;
+    border: 2px solid;
     border-radius: 8em;
-    background: none;
+    background: white;
+    color: black;
     outline: none;
     transform: translateY(30);
     opacity: 0;
   }
 
-  @media (max-width: 900px) {
+  @media (max-width: 768px) {
     .card {
       width: 50%;
       height: 200px;

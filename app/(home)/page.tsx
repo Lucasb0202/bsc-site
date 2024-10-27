@@ -335,7 +335,7 @@ export default function Home() {
 
             <div className="copy">
               <div className="line">
-                <p>CONSISTENCY COMPOUNDS</p>
+                <p className=''>CONSISTENCY COMPOUNDS</p>
               </div>
               <div className="line">
                 <p>
@@ -345,7 +345,7 @@ export default function Home() {
 
           </div>
           <div className='btn-container'>
-            <button className='btn-follow' >
+            <button className='btn-follow hover:bg-gray-300' >
               <a 
                 href="https://www.instagram.com/bsc_za/" 
                 // className="z-10"
