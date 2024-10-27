@@ -121,14 +121,14 @@ export default function Home() {
       scrollTrigger: scrollTriggerSettings,
     })
     
-    // gsap.to(".button", {
-      //   y: 0,
-      //   opacity: 1,
-      //   delay: 0.25,
-      //   duration: 0.5,
-      //   ease: "power1.out",
-      //   scrollTrigger: scrollTriggerSettings,
-      // })
+    gsap.to(".btn-follow", {
+      y: 0,
+      opacity: 1,
+      delay: 0.25,
+      duration: 0.5,
+      ease: "power1.out",
+      scrollTrigger: scrollTriggerSettings,
+    })
       
       return () => {
         ScrollTrigger.getAll().forEach((trigger) => trigger.kill())
@@ -141,15 +141,15 @@ export default function Home() {
       for (let i = 1, j = 4; i <= 3; i++, j++) {
         rows.push(
           <div className="row" key={i}>
-          <div className="card card-left">
-            <img className='img' src={`/photo-1.jpg`} alt="" />
+            <div className="card card-left">
+              <img className='img' src={`/photo-1.jpg`} alt="" />
+            </div>
+            <div className="card card-right">
+              <img className='img' src={`/photo-4.jpg`} alt="" />
+            </div>
           </div>
-          <div className="card card-right">
-            <img className='img' src={`/photo-4.jpg`} alt="" />
-          </div>
-        </div>
-      )
-    }
+        )
+      }
     return rows
   }
   
@@ -198,8 +198,8 @@ export default function Home() {
             muted
           />
           <div className="absolute inset-0 flex flex-col items-center justify-center z-10">
-            <p className="text-white lg:text-5xl md:text-4xl text-3xl font-bold text-center px-8">
-              BSC GYM IS A PLACE WHERE YOU LEARN TO PUSH YOUR LIMITS. OUR COACHING PLATFORM IS HERE TO TEACH YOU THE FUNDAMENTALS OF TRAINING EFFICIENTLY AND EFFECTIVELY.
+            <p className="text-white lg:text-8xl md:text-6xl text-4xl font-bold text-center px-8">
+              BUILDING THE EVERYDAY ATHLETE.
             </p>
             {/* <Button
               variant='bsc'
@@ -215,32 +215,24 @@ export default function Home() {
           </div>
         </div>
 
-        <div className='flex justify-center m-11'>
+        {/* <div className='flex justify-center m-11'>
           <h1 className='clip-path-animate-text animate-text lg:text-[130px] md:text-[80px] text-[50px]'>WHO ARE WE?</h1>
-        </div>
-
-        <div className='grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12'>
-          <div className='flex justify-center'>
-            <div className='flex flex-col w-4/5 md:ml-12 lg:ml-24'>
-              <h1 className='clip-path-animate-text animate-text text-[#5e5d5d] text-[40px] md:text-[70px] lg:text-[100px]'>OUR MISSION</h1>
-              <p className='text-white text-[12px] md:text-[18px] lg:text-[28px]'>
+        </div> */}
+        <div className='flex justify-center mt-10'>
+          <div className='flex flex-col items-center text-center w-5/6'>
+            {/* <div className='flex flex-col w-4/5 md:ml-12 lg:ml-24'> */}
+              <h1 className='clip-path-animate-text animate-text text-[#656665] text-[50px] md:text-[70px] lg:text-[130px]'>OUR MISSION</h1>
+              <p className='text-white text-[12px] md:text-[23px] lg:text-[50px]'>
                 At BSC, we believe that fitness is simple when
                 approached the right way. We provide the tools and
                 guidance you need to reach your fitness goals
                 without the guesswork, through personalized and
-                professional coaching. Our gym offers a unique,
-                private, small group personal training experience
-                that allows for individualized attention in a group
-                setting. What makes BSC unique is our exclusivity. We&apos;re not a walk-in
-                gym - our clients book their sessions in advance, ensuring a
-                well-structured and personalized experience. Our small
-                group classes (8-12 people) allow for a high level of
-                individual attention while still fostering a supportive group
-                environment. Every client is known by their coach, and every
-                session is designed with their specific needs in mind.
+                professional coaching.
               </p>
-            </div>
+            {/* </div> */}
           </div>
+        </div>
+        {/* <div className='grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12'>
           <div className='flex justify-center'>
             <img 
               src="/member-1.jpg" 
@@ -248,12 +240,12 @@ export default function Home() {
               className='max-w-full h-[300px] md:h-[600px] lg:h-[800px] rounded-2xl' 
             />
           </div>
-        </div>
+        </div> */}
         
         <div className='flex justify-center'>
-          <div className='flex flex-col w-4/5'>
+          <div className='flex flex-col w-5/6'>
             <div className='flex flex-col'>
-              <h1 className='clip-path-animate-text animate-text text-[#FFD700] lg:text-[100px] md:text-[70px] text-[50px]'>MAIN GOALS</h1>
+              <h1 className='clip-path-animate-text animate-text text-[#FFD700] lg:text-[130px] md:text-[70px] text-[50px]'>MAIN GOALS</h1>
               <p className='text-white md:text-[16px] lg:text-[28px] mb-5'>
                 Our aim is to make fitness accessible and achievable for everyone, no matter their fitness level. We focus on educating
                 our clients and providing them with the right roadmap to success. With the right coach, fitness becomes less of a
@@ -270,7 +262,7 @@ export default function Home() {
 
 
         <div className='flex justify-center m-11'>
-          <h1 className='clip-path-animate-text animate-text lg:text-[130px] md:text-[80px] text-[50px]'>WHAT WE DO</h1>
+          <h1 className='clip-path-animate-text animate-text lg:text-[130px] md:text-[70px] text-[50px]'>WHAT WE DO</h1>
         </div>
 
         <div className='flex flex-col items-center my-7'>
@@ -335,7 +327,7 @@ export default function Home() {
           </Carousel>
         </div>
 
-        <section className='main md:block hidden'>
+        <section className='main'>
           <div className='main-content'>
             <div className='logo'>
               <img className='img' src="/bsc-logo.png" alt="bsc logo" />
@@ -343,17 +335,23 @@ export default function Home() {
 
             <div className="copy">
               <div className="line">
-                <p>GET INVOLVED!</p>
+                <p>CONSISTENCY COMPOUNDS</p>
               </div>
               <div className="line">
-                <p>FITTER</p>
+                <p>
+                </p>
               </div>
-              <div className="line">
-                <p>FASTER</p>
-              </div>
-              <div className="line">
-                <p>STRONGER</p>
-              </div>
+            </div>
+
+            <div className='btn-container'>
+              <button className='btn-follow' >
+                <a 
+                  href="https://www.instagram.com/bsc_za/" 
+                  // className="z-10"
+                >
+                  FOLLOW US @BSC_ZA
+                </a>
+              </button>
             </div>
           </div>
           {generateRows()}

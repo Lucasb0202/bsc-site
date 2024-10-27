@@ -151,11 +151,11 @@ const Navbar = () => {
           <DropdownMenuTrigger>
             <Button
               variant='bsc'
-              className="md:text-[20px] lg:text-[30px] text-[15px]"
+              className="md:text-[20px] lg:text-[30px] text-[17px]"
               type="button"
             >
               CONTACT US
-              <ChevronDown size={18}/>
+              {/* <ChevronDown size={18}/> */}
             </Button>
           </DropdownMenuTrigger>
           <DropdownMenuContent className="">
