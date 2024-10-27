@@ -29,6 +29,18 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    /* background-color: blue; */
+  }
+
+  .main-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* z-index: 10; */
   }
 
   .row {
@@ -47,17 +59,6 @@
     border-radius: 0.75em;
     overflow: hidden;
     will-change: transform;
-  }
-
-  .main-content {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    /* z-index: 10; */
   }
 
   .logo {
@@ -91,6 +92,18 @@
     transform: translateY(30px);
   }
 
+  .btn-container {
+    position: absolute;
+    top: 65%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    /* background-color: red; */
+    /* display: flex; */
+    /* flex-direction: column; */
+    /* align-items: center; */
+    z-index: 10;
+  }
+
   .btn-follow {
     position: relative;
     padding: 1em 2em;
@@ -102,7 +115,6 @@
     outline: none;
     transform: translateY(30);
     opacity: 0;
-    z-index: 10;
   }
 
   @media (max-width: 900px) {

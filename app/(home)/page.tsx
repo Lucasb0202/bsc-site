@@ -327,7 +327,7 @@ export default function Home() {
           </Carousel>
         </div>
 
-        <section className='main'>
+        <section className='main md:block hidden'>
           <div className='main-content'>
             <div className='logo'>
               <img className='img' src="/bsc-logo.png" alt="bsc logo" />
@@ -343,16 +343,16 @@ export default function Home() {
               </div>
             </div>
 
-            <div className='btn-container'>
-              <button className='btn-follow' >
-                <a 
-                  href="https://www.instagram.com/bsc_za/" 
-                  // className="z-10"
-                >
-                  FOLLOW US @BSC_ZA
-                </a>
-              </button>
-            </div>
+          </div>
+          <div className='btn-container'>
+            <button className='btn-follow' >
+              <a 
+                href="https://www.instagram.com/bsc_za/" 
+                // className="z-10"
+              >
+                FOLLOW US @BSC_ZA
+              </a>
+            </button>
           </div>
           {generateRows()}
         </section>
