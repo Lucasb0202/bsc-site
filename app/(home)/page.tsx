@@ -214,7 +214,7 @@ export default function Home() {
                   style={{ 
                     backgroundImage: `url(${item.imageUrl})`,
                   }} 
-                  // key={index}
+                  key={index}
                   className='relative bg-cover bg-center lg:h-[500px] rounded-2xl'
                 > 
                   <div className='absolute z-0 inset-0 bg-black/30'></div>
