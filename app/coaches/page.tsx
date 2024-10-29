@@ -48,7 +48,9 @@ const Coaches = () => {
     //       </Card>
     //     </div>
     // </>
-    <></>
+    <div className='flex items-center justify-center h-full'>
+      <h1 className='text-[60px]'>COMING SOON</h1>
+    </div>
   );
 }
  

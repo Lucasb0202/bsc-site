@@ -39,6 +39,28 @@ export default function Home() {
   // })
 
   useEffect(() => {
+    const paraElement = new SplitType('p.animate-para', { types: 'words' })
+    const words = paraElement.words
+    gsap.fromTo(
+      words,
+      {
+        y: 150,
+        opacity: 0
+      },
+      { 
+        y: 0,
+        opacity: 1,
+        stagger: 0.05,
+        duration: 2,
+        ease: 'power4.out',
+        scrollTrigger: {
+          trigger: 'p.animate-para',
+          start: 'top 100%', 
+          // end: 'top 20%', 
+          // toggleActions: 'play none none none', 
+        }
+      }
+    );
     const textElements = document.querySelectorAll('h1.animate-text');
 
     textElements.forEach((element) => {
@@ -182,10 +204,10 @@ export default function Home() {
             loop
             muted
           /> */}
-          <div className="background-img relative top-0 left-0 w-full h-full object-cover block">
+          <div className="background-img absolute top-0 left-0 w-full h-full object-cover block">
             <img 
               className="w-full h-full object-cover"
-              src="/team-2.jpg"
+              src="/team.jpeg"
             />
           </div>
           <div className="absolute inset-0 flex flex-col items-center justify-center z-10">
@@ -207,7 +229,7 @@ export default function Home() {
         </div>
 
         <div className='flex justify-center'>
-          <div className='w-5/6 grid grid-cols-3 gap-3'>
+          <div className='w-5/6 grid md:grid-cols-3 grid-cols-1 gap-3'>
             {cardItems.map((item, index) => {
               return (
                 <Card 
@@ -220,11 +242,11 @@ export default function Home() {
                   <div className='absolute z-0 inset-0 bg-black/30'></div>
                   <div className='flex flex-col items-center justify-center h-full'>
                     <CardContent className='relative z-10 text-center'>
-                      <h1 className='text-[60px]'>{item.title}</h1>
+                      <h1 className='text-[40px] md:text-[50px] lg:text-[60px]'>{item.title}</h1>
                       <h2 className='text-[20px]'>{item.subtext}</h2>
                     </CardContent>
                     <CardFooter className='relative z-10'>
-                      <Button>
+                      <Button className='lg:text-[20px] text-white bg-transparent border border-white hover:bg-white hover:text-black'>
                         Learn More
                       </Button>
                     </CardFooter>
@@ -242,9 +264,9 @@ export default function Home() {
         <div className='flex justify-center mt-10'>
           <div className='flex flex-col items-center text-center w-5/6'>
             {/* <div className='flex flex-col w-4/5 md:ml-12 lg:ml-24'> */}
-              <h1 className='clip-path-animate-text animate-text text-[#656665] text-[50px] md:text-[70px] lg:text-[150px]'>OUR MISSION</h1>
+              <h1 className='clip-path-animate-text animate-text text-[#656665] text-[70px] md:text-[110px] lg:text-[150px]'>OUR MISSION</h1>
               <div className='flex justify-center'>
-                <p className='w-2/3 leading-none text-white text-[12px] md:text-[33px] lg:text-[70px]'>
+                <p className='animate-para w-2/3 leading-none text-white text-[25px] md:text-[33px] lg:text-[70px]'>
                   We provide the tools and
                   guidance you need to reach your fitness goals
                   without the guesswork, through personalized and
@@ -254,6 +276,13 @@ export default function Home() {
             {/* </div> */}
           </div>
         </div>
+
+        
+        {/* CAROUSEL */}
+
+
+
+
         {/* <div className='grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12'>
           <div className='flex justify-center'>
             <img 

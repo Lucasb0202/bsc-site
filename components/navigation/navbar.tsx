@@ -38,11 +38,12 @@ const Navbar = () => {
       name: "COACHES",
       icon: <Dumbbell size={29}/>
     },
+    {
+      path: "/shop",
+      name: "SHOP",
+      icon: <BookOpen size={29}/>
+    }, 
     // {
-    //   path: "/page",
-    //   name: "PAGE",
-    //   icon: <BookOpen size={29}/>
-    // }, {
     //   path: "/location",
     //   name: "PAGE",
     //   icon: <BookOpen size={29}/>
