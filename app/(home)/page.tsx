@@ -155,65 +155,86 @@ export default function Home() {
   
   const cardItems = [
     {
-      title: "Real-time Leaderboards",
-      description: "Compare your performances with others trained by the same coaching provider. Coach set benchmarks in your program will drive real time leaderboards with full ‘like and commenting’ ability.",
-      imageUrl: "/photo-1.jpg"
-    },
-    {
-      title: "Ad-hoc Sessions",
-      description: "Occasionally do your own workout? Or want to track the time walking the dog? No problem, supplement your coaching by building your own sessions, on the same day, in the same calendar. Everything stored in one place!",
-      imageUrl: "/photo-2.jpg"
-    },
-    {
-      title: "Calendar Feedback",
-      description: "Your coach will be able to drop personalised comments, directly onto your training calendar, specific to your performances. A certain session might not go quite as planned, discuss it there and then with your coach. Hit a new high, let your coach know directly next to the performance!",
-      imageUrl: "/photo-3.jpg"
-    },
-    {
-      title: "Program Communities",
-      description: "Integrate yourself into the community. We will make you part of your program’s community, where you can share and ask anything within the group. Ask questions, share your progress, throw some high fives, it’s all possible!",
+      title: "Heading",
+      subtext: "Subtext",
       imageUrl: "/photo-4.jpg"
     },
     {
-      title: "1-2-1 Chat",
-      description: "Our dedicated messenger service will let you share your performances, direct from your training calendar, to your coach, and chat 1-2-1 about anything on your mind.",
+      title: "Heading",
+      subtext: "Subtext",
       imageUrl: "/photo-5.jpg"
     },
     {
-      title: "Customisable Benchmark Tracker",
-      description: "Track an unlimited amount of benchmarks. Link media to each performance and see your progression over time. Share benchmarks to your coach for feedback.",
+      title: "Heading",
+      subtext: "Subtext",
       imageUrl: "/photo-6.jpg"
-    },
+    }
   ]
 
   return (
     <>
       <ReactLenis root>
         <div className="relative h-screen">
-          <video 
+          {/* <video 
             className='hidden md:absolute md:top-0 md:left-0 md:w-full md:h-full md:object-cover md:blur-sm md:block'
             src="/videoBg.mp4"
             autoPlay
             loop
             muted
-          />
+          /> */}
+          <div className="background-img relative top-0 left-0 w-full h-full object-cover block">
+            <img 
+              className="w-full h-full object-cover"
+              src="/team-2.jpg"
+            />
+          </div>
           <div className="absolute inset-0 flex flex-col items-center justify-center z-10">
-            <p className="text-white lg:text-8xl md:text-6xl text-4xl font-bold text-center px-8">
+            <p className="text-white lg:text-9xl md:text-7xl text-5xl font-bold text-center px-8">
               BUILDING THE EVERYDAY ATHLETE.
             </p>
-            {/* <Button
+            <Button
               variant='bsc'
               className="mt-4 text-[25px]"
               size='lg'
             >
               <Link
-                href='/online-training'
+                href=''
               >
-              LEARN MORE
+              Apply Now
               </Link>
-            </Button> */}
+            </Button>
           </div>
         </div>
+
+        <div className='flex justify-center'>
+          <div className='w-5/6 grid grid-cols-3 gap-3'>
+            {cardItems.map((item, index) => {
+              return (
+                <Card 
+                  style={{ 
+                    backgroundImage: `url(${item.imageUrl})`,
+                  }} 
+                  // key={index}
+                  className='relative bg-cover bg-center lg:h-[500px] rounded-2xl'
+                > 
+                  <div className='absolute z-0 inset-0 bg-black/30'></div>
+                  <div className='flex flex-col items-center justify-center h-full'>
+                    <CardContent className='relative z-10 text-center'>
+                      <h1 className='text-[60px]'>{item.title}</h1>
+                      <h2 className='text-[20px]'>{item.subtext}</h2>
+                    </CardContent>
+                    <CardFooter className='relative z-10'>
+                      <Button>
+                        Learn More
+                      </Button>
+                    </CardFooter>
+                  </div>
+                </Card>
+              )
+            })}
+          </div>
+        </div>
+        
 
         {/* <div className='flex justify-center m-11'>
           <h1 className='clip-path-animate-text animate-text lg:text-[130px] md:text-[80px] text-[50px]'>WHO ARE WE?</h1>
@@ -221,14 +242,15 @@ export default function Home() {
         <div className='flex justify-center mt-10'>
           <div className='flex flex-col items-center text-center w-5/6'>
             {/* <div className='flex flex-col w-4/5 md:ml-12 lg:ml-24'> */}
-              <h1 className='clip-path-animate-text animate-text text-[#656665] text-[50px] md:text-[70px] lg:text-[130px]'>OUR MISSION</h1>
-              <p className='text-white text-[12px] md:text-[23px] lg:text-[50px]'>
-                At BSC, we believe that fitness is simple when
-                approached the right way. We provide the tools and
-                guidance you need to reach your fitness goals
-                without the guesswork, through personalized and
-                professional coaching.
-              </p>
+              <h1 className='clip-path-animate-text animate-text text-[#656665] text-[50px] md:text-[70px] lg:text-[150px]'>OUR MISSION</h1>
+              <div className='flex justify-center'>
+                <p className='w-2/3 leading-none text-white text-[12px] md:text-[33px] lg:text-[70px]'>
+                  We provide the tools and
+                  guidance you need to reach your fitness goals
+                  without the guesswork, through personalized and
+                  professional coaching.
+                </p>
+              </div>
             {/* </div> */}
           </div>
         </div>
@@ -242,7 +264,7 @@ export default function Home() {
           </div>
         </div> */}
         
-        <div className='flex justify-center'>
+        {/* <div className='flex justify-center'>
           <div className='flex flex-col w-5/6'>
             <div className='flex flex-col'>
               <h1 className='clip-path-animate-text animate-text text-[#FFD700] lg:text-[130px] md:text-[70px] text-[50px]'>MAIN GOALS</h1>
@@ -258,14 +280,14 @@ export default function Home() {
               className='rounded-2xl w-full max-w-full h-auto object-cover'
             />
           </div>
-        </div>
+        </div> */}
 
 
-        <div className='flex justify-center m-11'>
+        {/* <div className='flex justify-center m-11'>
           <h1 className='clip-path-animate-text animate-text lg:text-[130px] md:text-[70px] text-[50px]'>WHAT WE DO</h1>
-        </div>
+        </div> */}
 
-        <div className='flex flex-col items-center my-7'>
+        {/* <div className='flex flex-col items-center my-7'>
           <div className='md:grid hidden gap-5 w-5/6 md:grid-cols-2 lg:grid-cols-3'>
             {cardItems.map((item, index) => {
               return (
@@ -325,7 +347,7 @@ export default function Home() {
             <CarouselPrevious />
             <CarouselNext />
           </Carousel>
-        </div>
+        </div> */}
 
         <section className='main md:block hidden'>
           <div className='main-content'>
@@ -335,7 +357,7 @@ export default function Home() {
 
             <div className="copy">
               <div className="line">
-                <p className=''>CONSISTENCY COMPOUNDS</p>
+                <p className=''>HOME OF THE EVERYDAY ATHLETE</p>
               </div>
               <div className="line">
                 <p>
