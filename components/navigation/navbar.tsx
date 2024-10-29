@@ -71,50 +71,33 @@ const Navbar = () => {
         pathname === '/' ? "fixed left-1/2 transform -translate-x-1/2" : "sticky mx-auto"
       )}>
         <div className="lg:hidden">
-          <Drawer direction="right">
-            <DrawerTrigger className="px-4 py-2">
-                <Menu size={32} />
-            </DrawerTrigger>
-            <DrawerContent>
-              <DrawerHeader>
-                <DrawerTitle className="flex justify-center">
-                  <Image 
-                    src="/bsc-logo.png"
-                    alt="BSC logo"
-                    width={110}
-                    height={0}
-                  />
-                </DrawerTitle>
-              </DrawerHeader>
-              <div className="flex flex-col">
-                {navItems.map((item, index) => {
-                  const isActive = item.path === pathname;
-                  
-                  return(
-                    <>
+          <DropdownMenu modal={false}>
+            <DropdownMenuTrigger className="flex justify-center items-center">
+              <Button variant="ghost">
+                <Menu size={32}/>
+              </Button>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent>
+              {navItems.map((item, index) => {
+                const isActive = item.path === pathname;
+
+                return (
+                  <>
+                    <DropdownMenuItem>
                       <Link 
                         key={item.path}
                         href={item.path}
-                        className={`${isActive ? "text-[#0078e6] mb-6": "mb-6"}`}
+                        className={`hover:text-[#0078e6] ${isActive ? "text-[#0078e6]": ""}`}
                       >
-                        <DrawerClose>
-                          <Button variant="ghost">
-                            <div className="flex text-[30px] ">
-                              <span className="px-3">{item.icon}</span>
-                              <span>{item.name}</span>
-                            </div>
-                          </Button> 
-                        </DrawerClose>
-                        {/* <div className="space-y-1.5">
-                          <Separator className='bg-blue-500/60 h-[2px]'/>
-                        </div> */}
+                        <p className="text-[20px] md:text-[25px]">{item.name}</p>
                       </Link>
-                    </>
-                  )
-                })}
-              </div>
-            </DrawerContent>
-          </Drawer>
+                    </DropdownMenuItem>
+                    {index != navItems.length - 1 ? <DropdownMenuSeparator /> : <></>}
+                  </>
+                )
+              })}
+            </DropdownMenuContent>
+          </DropdownMenu>
         </div>
         <div className="lg:flex hidden">
           {navItems.map((item, index) => {
