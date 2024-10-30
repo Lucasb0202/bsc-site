@@ -128,14 +128,14 @@
     height: 40%;  
   }
 
-  @media (max-width: 1200px) {
+  @media (max-width: 900px) {
     .card {
       width: 50%;
       height: 200px;
     }
 
     .logo {
-      height: 75px;
+      height: 100px;
     }
   }
 
