@@ -128,7 +128,7 @@
     height: 40%;  
   }
 
-  @media (max-width: 768px) {
+  @media (max-width: 900px) {
     .card {
       width: 50%;
       height: 200px;

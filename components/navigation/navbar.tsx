@@ -71,7 +71,7 @@ const Navbar = () => {
       <div className={cn("z-50 bg-black top-3 flex w-5/6 items-center text-[16px] text-white p-4 justify-between border border-neutral-500 rounded-[15px] lg:p-6",
         pathname === '/' ? "fixed left-1/2 transform -translate-x-1/2" : "sticky mx-auto"
       )}>
-        <div className="lg:hidden">
+        <div className="md:hidden">
           <DropdownMenu modal={false}>
             <DropdownMenuTrigger className="flex justify-center items-center">
               <Button variant="ghost">
@@ -100,7 +100,7 @@ const Navbar = () => {
             </DropdownMenuContent>
           </DropdownMenu>
         </div>
-        <div className="lg:flex hidden">
+        <div className="md:flex hidden">
           {navItems.map((item, index) => {
             const isActive = item.path === pathname;
 

@@ -10,6 +10,7 @@ import gsap from "gsap"
 import SplitType from 'split-type'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { ReactLenis } from "lenis/react"
+import Autoplay from "embla-carousel-autoplay"
 import {
   Carousel,
   CarouselContent,
@@ -39,28 +40,28 @@ export default function Home() {
   // })
 
   useEffect(() => {
-    const paraElement = new SplitType('p.animate-para', { types: 'words' })
-    const words = paraElement.words
-    gsap.fromTo(
-      words,
-      {
-        y: 150,
-        opacity: 0
-      },
-      { 
-        y: 0,
-        opacity: 1,
-        stagger: 0.05,
-        duration: 2,
-        ease: 'power4.out',
-        scrollTrigger: {
-          trigger: 'p.animate-para',
-          start: 'top 100%', 
-          // end: 'top 20%', 
-          // toggleActions: 'play none none none', 
-        }
-      }
-    );
+    // const paraElement = new SplitType('p.animate-para', { types: 'words' })
+    // const words = paraElement.words
+    // gsap.fromTo(
+    //   words,
+    //   {
+    //     y: 150,
+    //     opacity: 0
+    //   },
+    //   { 
+    //     y: 0,
+    //     opacity: 1,
+    //     stagger: 0.05,
+    //     duration: 2,
+    //     ease: 'power4.out',
+    //     scrollTrigger: {
+    //       trigger: 'p.animate-para',
+    //       start: 'top 100%', 
+    //       // end: 'top 20%', 
+    //       // toggleActions: 'play none none none', 
+    //     }
+    //   }
+    // );
     const textElements = document.querySelectorAll('h1.animate-text');
 
     textElements.forEach((element) => {
@@ -164,10 +165,10 @@ export default function Home() {
         rows.push(
           <div className="row" key={i}>
             <div className="card card-left">
-              <img className='img' src={`/photo-1.jpg`} alt="" />
+              <img className='img' src={`/photo-${i}.jpg`} alt="row image" />
             </div>
             <div className="card card-right">
-              <img className='img' src={`/photo-4.jpg`} alt="" />
+              <img className='img' src={`/photo-${j}.jpg`} alt="row image" />
             </div>
           </div>
         )
@@ -192,6 +193,10 @@ export default function Home() {
       imageUrl: "/photo-6.jpg"
     }
   ]
+
+  const plugin = React.useRef(
+    Autoplay({ delay: 4000, stopOnInteraction: false })
+  )
 
   return (
     <>
@@ -341,42 +346,31 @@ export default function Home() {
               )
             })}
           </div>
-        </div>
+        </div> */}
         
-        <div className='md:hidden flex justify-center'>
-          <Carousel 
-            className="w-full max-w-xs"
+        <div className='flex justify-center'>
+          <Carousel
+            plugins={[plugin.current] as any}
+            className="w-full max-w-md md:max-w-xl lg:max-w-5xl"
+            opts={{
+              align: 'start',
+            }}
           >
             <CarouselContent>
-              {cardItems.map((item, index) => (
-                <CarouselItem key={index}>
+              {Array.from({ length: 5 }).map((_, index) => (
+                <CarouselItem className='basis-1/2' key={index}>
                   <div className="p-1">
-                    <Card
-                      style={{ 
-                        backgroundImage: `url(${item.imageUrl})`,
-                      }}
-                      key={index}
-                      className='relative bg-cover bg-center'
-                    >
-                      <div className='absolute z-0 inset-0 bg-black/60'></div>
-                      <CardHeader className='relative z-10 flex items-center'>
-                        <CardTitle className='text-[23px] font-normal'>{item.title}</CardTitle>
-                        <Separator className='bg-blue-500 h-[2px]'/>
-                      </CardHeader>
-                      <CardContent className="relative z-10 flex aspect-square justify-center p-6">
-                      <CardDescription className='text-white text-center text-[17px]'>
-                        {item.description}
-                      </CardDescription>
+                    <Card>
+                      <CardContent className="flex aspect-square items-center justify-center p-6">
+                        <span className="text-4xl font-semibold">{index + 1}</span>
                       </CardContent>
                     </Card>
                   </div>
                 </CarouselItem>
               ))}
             </CarouselContent>
-            <CarouselPrevious />
-            <CarouselNext />
           </Carousel>
-        </div> */}
+        </div>
 
         <section className='main md:block hidden'>
           <div className='main-content'>
