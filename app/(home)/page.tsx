@@ -219,17 +219,31 @@ export default function Home() {
             <p className="text-white lg:text-9xl md:text-7xl text-5xl font-bold text-center px-8">
               BUILDING THE EVERYDAY ATHLETE.
             </p>
-            <Button
-              variant='bsc'
-              className="mt-4 text-[25px]"
-              size='lg'
+            <motion.div
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.9 }}
+              transition={{ type: "spring", stiffness: 400, damping: 10 }}
             >
-              <Link
-                href=''
+              <Button
+                variant='bsc'
+                className="mt-4 text-[30px] rounded-full"
+                size='lg'
               >
-              Apply Now
-              </Link>
-            </Button>
+                <Link
+                  href=''
+                >
+                Apply Now
+                </Link>
+              </Button>
+            </motion.div>
+            {/* <motion.button 
+              whileHover={{ scale: 1.2 }}
+              whileTap={{ scale: 0.9 }}
+              transition={{ type: "spring", stiffness: 400, damping: 10 }}
+            >
+              button
+
+            </motion.button> */}
           </div>
         </div>
 
@@ -251,7 +265,7 @@ export default function Home() {
                       <h2 className='text-[20px]'>{item.subtext}</h2>
                     </CardContent>
                     <CardFooter className='relative z-10'>
-                      <Button className='lg:text-[20px] text-white bg-transparent border border-white hover:bg-white hover:text-black'>
+                      <Button className='lg:text-[20px] text-white bg-transparent rounded-full border border-white hover:bg-white hover:text-black'>
                         Learn More
                       </Button>
                     </CardFooter>
@@ -266,12 +280,12 @@ export default function Home() {
         {/* <div className='flex justify-center m-11'>
           <h1 className='clip-path-animate-text animate-text lg:text-[130px] md:text-[80px] text-[50px]'>WHO ARE WE?</h1>
         </div> */}
-        <div className='flex justify-center mt-10'>
+        <div className='flex justify-center my-10'>
           <div className='flex flex-col items-center text-center w-5/6'>
             {/* <div className='flex flex-col w-4/5 md:ml-12 lg:ml-24'> */}
-              <h1 className='clip-path-animate-text animate-text text-[#656665] text-[70px] md:text-[110px] lg:text-[150px]'>OUR MISSION</h1>
+              <h1 className='clip-path-animate-text animate-text text-[#656665] text-[80px] md:text-[120px] lg:text-[160px]'>OUR MISSION</h1>
               <div className='flex justify-center'>
-                <p className='animate-para w-2/3 leading-none text-white text-[25px] md:text-[33px] lg:text-[70px]'>
+                <p className='animate-para w-2/3 leading-none text-white text-[30px] md:text-[38px] lg:text-[70px]'>
                   We provide the tools and
                   guidance you need to reach your fitness goals
                   without the guesswork, through personalized and
@@ -348,7 +362,7 @@ export default function Home() {
           </div>
         </div> */}
         
-        <div className='flex justify-center'>
+        <div className='flex justify-center mb-10'>
           <Carousel
             plugins={[plugin.current] as any}
             className="w-full max-w-md md:max-w-xl lg:max-w-5xl"
@@ -390,14 +404,19 @@ export default function Home() {
 
           </div>
           <div className='btn-container'>
-            <button className='btn-follow hover:bg-gray-300' >
+            <motion.button 
+              className='btn-follow hover:bg-white hover:text-black' 
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.9 }}
+              transition={{ type: "spring", stiffness: 400, damping: 10 }}
+              >
               <a 
                 href="https://www.instagram.com/bsc_za/" 
                 // className="z-10"
               >
                 FOLLOW US @BSC_ZA
               </a>
-            </button>
+            </motion.button>
           </div>
           {generateRows()}
         </section>

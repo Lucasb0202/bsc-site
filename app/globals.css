@@ -111,8 +111,8 @@
     color: #fff;
     border: 2px solid;
     border-radius: 8em;
-    background: white;
-    color: black;
+    background: black;
+    color: white;
     outline: none;
     transform: translateY(30);
     opacity: 0;
@@ -128,14 +128,14 @@
     height: 40%;  
   }
 
-  @media (max-width: 900px) {
+  @media (max-width: 1200px) {
     .card {
       width: 50%;
       height: 200px;
     }
 
     .logo {
-      height: 100px;
+      height: 75px;
     }
   }
 

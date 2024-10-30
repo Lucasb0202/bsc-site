@@ -4,6 +4,7 @@ import Link from "next/link";
 import React, { useEffect, useState } from "react"
 import { Separator } from "../ui/separator";
 import { Button } from "../ui/button";
+import { motion, useScroll } from "framer-motion"
 import { 
   DropdownMenu, 
   DropdownMenuContent, 
@@ -133,14 +134,21 @@ const Navbar = () => {
         </div>
         <DropdownMenu modal={false}>
           <DropdownMenuTrigger>
-            <Button
-              variant='bsc'
-              className="md:text-[20px] lg:text-[30px] text-[17px]"
-              type="button"
+            <motion.div
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.9 }}
+              transition={{ type: "spring", stiffness: 400, damping: 10 }}
             >
-              CONTACT US
-              {/* <ChevronDown size={18}/> */}
-            </Button>
+              <Button
+                variant='bsc'
+                className="md:text-[20px] lg:text-[30px] text-[17px] rounded-full"
+                type="button"
+                // size='xl'
+              >
+                CONTACT US
+                {/* <ChevronDown size={18}/> */}
+              </Button>
+            </motion.div>
           </DropdownMenuTrigger>
           <DropdownMenuContent className="">
             <DropdownMenuItem>
