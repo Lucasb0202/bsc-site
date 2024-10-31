@@ -230,7 +230,7 @@ export default function Home() {
                 size='lg'
               >
                 <Link
-                  href=''
+                  href='http://eepurl.com/i2K4FU'
                 >
                 Apply Now
                 </Link>
