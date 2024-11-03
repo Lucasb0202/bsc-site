@@ -212,7 +212,7 @@ export default function Home() {
           <div className="background-img absolute top-0 left-0 w-full h-full object-cover block">
             <img 
               className="w-full h-full object-cover"
-              src="/team.jpeg"
+              src="/team-3 (2).jpg"
             />
           </div>
           <div className="absolute inset-0 flex flex-col items-center justify-center z-10">
