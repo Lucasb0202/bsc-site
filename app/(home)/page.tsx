@@ -212,11 +212,11 @@ export default function Home() {
           <div className="background-img absolute top-0 left-0 w-full h-full object-cover block">
             <img 
               className="w-full h-full object-cover"
-              src="/team-3 (2).jpg"
+              src="/team-3.jpg"
             />
           </div>
           <div className="absolute inset-0 flex flex-col items-center justify-center z-10">
-            <p className="text-white lg:text-9xl md:text-7xl text-5xl font-bold text-center px-8">
+            <p className="text-white lg:text-[140px] md:text-7xl text-5xl font-bold text-center px-8">
               BUILDING THE EVERYDAY ATHLETE.
             </p>
             <motion.div
