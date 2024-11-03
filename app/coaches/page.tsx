@@ -37,6 +37,7 @@ const Coaches = () => {
           {teamItems.map((item, index) => {
             return (
               <Card
+                key={index}
                 style={{
                   backgroundImage: `url(${item.imageUrl})`,
                 }}
