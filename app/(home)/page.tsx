@@ -398,7 +398,7 @@ export default function Home() {
 
         <section className='main md:block hidden'>
           <div className='main-content'>
-            <div className='logo'>
+            <div className='logo lg:h-[200px] md:h-[150px] h-[100px]'>
               <img className='img' src="/bsc-logo.png" alt="bsc logo" />
             </div>
 
@@ -431,7 +431,7 @@ export default function Home() {
           {generateRows()}
         </section>
 
-        <div className="relative md:hidden grid gap-3 grid-cols-1">
+        <div className="relative overflow-x-hidden md:hidden grid gap-3 grid-cols-1">
           <motion.div style={{ x: topCardX }}>
             <Card className="min-h-56" />
           </motion.div>

@@ -63,7 +63,7 @@
 
   .logo {
     /* width: 150px; */
-    height: 150px;
+    /* height: 150px; */
     /* border: 2px solid #fff; */
     /* border-radius: 100%; */
     overflow: hidden;
@@ -146,10 +146,6 @@
     .card {
       width: 50%;
       height: 200px;
-    }
-
-    .logo {
-      /* height: 100px; */
     }
   }
 
