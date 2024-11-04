@@ -4,7 +4,7 @@ import React, { useRef } from 'react'
 import Image from 'next/image';
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
-import { motion, useScroll } from "framer-motion"
+import { motion, useScroll, useTransform } from "framer-motion"
 import { useEffect } from 'react'
 import gsap from "gsap"
 import SplitType from 'split-type'
@@ -194,9 +194,19 @@ export default function Home() {
     }
   ]
 
+  // CAROUSEL
   const plugin = React.useRef(
     Autoplay({ delay: 4000, stopOnInteraction: false })
   )
+
+  // MOBILE ANIMATION AT THE BOTTOM
+  const { scrollY } = useScroll();
+
+  const topCardX = useTransform(scrollY, [1000, 2300], [0, 400]);
+  const middleCardX = useTransform(scrollY, [1000, 2300], [0, -550]); 
+  const bottomCardX = useTransform(scrollY, [1000, 2300], [0, 400]); 
+
+  const logoOpacity = useTransform(scrollY, [1800, 2000], [0, 1]);
 
   return (
     <>
@@ -219,7 +229,7 @@ export default function Home() {
             <p className="text-white lg:text-[140px] md:text-7xl text-5xl font-bold text-center px-8">
               BUILDING THE EVERYDAY ATHLETE.
             </p>
-            <motion.div
+            {/* <motion.div
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
               transition={{ type: "spring", stiffness: 400, damping: 10 }}
@@ -235,7 +245,7 @@ export default function Home() {
                 Apply Now
                 </Link>
               </Button>
-            </motion.div>
+            </motion.div> */}
             {/* <motion.button 
               whileHover={{ scale: 1.2 }}
               whileTap={{ scale: 0.9 }}
@@ -285,7 +295,7 @@ export default function Home() {
             {/* <div className='flex flex-col w-4/5 md:ml-12 lg:ml-24'> */}
               <h1 className='clip-path-animate-text animate-text text-[#656665] text-[80px] md:text-[120px] lg:text-[160px]'>OUR MISSION</h1>
               <div className='flex justify-center'>
-                <p className='animate-para w-2/3 leading-none text-white text-[30px] md:text-[38px] lg:text-[70px]'>
+                <p className='animate-para md:w-2/3 leading-none text-white text-[35px] md:text-[38px] lg:text-[70px]'>
                   We provide the tools and
                   guidance you need to reach your fitness goals
                   without the guesswork, through personalized and
@@ -393,13 +403,13 @@ export default function Home() {
             </div>
 
             <div className="copy">
-              <div className="line">
+              {/* <div className="line">
                 <p className=''>HOME OF THE EVERYDAY ATHLETE</p>
-              </div>
-              <div className="line">
+              </div> */}
+              {/* <div className="line">
                 <p>
                 </p>
-              </div>
+              </div> */}
             </div>
 
           </div>
@@ -420,6 +430,48 @@ export default function Home() {
           </div>
           {generateRows()}
         </section>
+
+        <div className="relative md:hidden grid gap-3 grid-cols-1">
+          <motion.div style={{ x: topCardX }}>
+            <Card className="min-h-56" />
+          </motion.div>
+          <motion.div style={{ x: middleCardX }}>
+            <Card className="min-h-64" />
+          </motion.div>
+          <motion.div style={{ x: bottomCardX }}>
+            <Card className="min-h-64" />
+          </motion.div>
+
+          <motion.div
+            className="absolute inset-0 flex flex-col items-center justify-center"
+            style={{ opacity: logoOpacity }}
+          >
+            <img src="/bsc-logo.png" alt="Logo" className="h-[130px]" />
+            <motion.button 
+              className='btn-follow-mobile hover:bg-white hover:text-black' 
+              whileTap={{ scale: 0.9 }}
+              transition={{ type: "spring", stiffness: 400, damping: 10 }}
+            >
+              <a 
+                href="https://www.instagram.com/bsc_za/" 
+                // className="z-10"
+              >
+                FOLLOW US @BSC_ZA
+              </a>
+            </motion.button>
+          </motion.div>
+        </div>
+          {/* <motion.div
+            initial={{ x: 0 }}
+            whileInView={{ x: 280 }}
+            transition={{ duration: 1 }}
+            viewport={{ once: false, amount: 0.4 }}
+          >
+            <Card className="min-h-64" />
+          </motion.div> */}
+        {/* </div> */}
+
+
       </ReactLenis>
     </>
   );
