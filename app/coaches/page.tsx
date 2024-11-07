@@ -50,11 +50,12 @@ const Coaches = () => {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 1.0 }}
                 transition={{ type: "spring", stiffness: 400, damping: 10 }}
+                key={index}
               >
                 <Dialog>
                   <DialogTrigger className='w-full'>
                   <Card
-                    key={index}
+                    // key={index}
                     style={{
                       backgroundImage: `url(${item.imageUrl})`,
                     }}
