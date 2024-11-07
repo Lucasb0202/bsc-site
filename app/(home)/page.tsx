@@ -203,7 +203,7 @@ export default function Home() {
   const { scrollY } = useScroll();
 
   const topCardX = useTransform(scrollY, [1000, 2300], [0, 400]);
-  const middleCardX = useTransform(scrollY, [1000, 2300], [0, -550]); 
+  const middleCardX = useTransform(scrollY, [1000, 2300], [0, -500]); 
   const bottomCardX = useTransform(scrollY, [1000, 2300], [0, 400]); 
 
   const logoOpacity = useTransform(scrollY, [1800, 2000], [0, 1]);
