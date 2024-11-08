@@ -68,7 +68,7 @@ const Coaches = () => {
                     </div>
                   </Card>
                   </DialogTrigger>
-                <DialogContent>
+                <DialogContent className='w-full max-h-[90vh] overflow-y-auto'>
                   <DialogHeader 
                     style={{
                       backgroundImage: `url(${item.imageUrl})`
@@ -77,7 +77,7 @@ const Coaches = () => {
                   >
                     <DialogTitle className='md:text-[140px] text-[100px] font-normal leading-none'>{item.fullName}</DialogTitle>
                   </DialogHeader>
-                  <DialogDescription className='leading-none md:text-[18px] text-[15px]'>
+                  <DialogDescription className='font-normal leading-none md:text-[18px] text-[15px]'>
                     {item.description}
                   </DialogDescription>
                   <CardFooter className='p-0'>
